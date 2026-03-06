@@ -131,9 +131,17 @@ body::before {
   pointer-events: none; z-index: 0;
   animation: breathe 5s ease-in-out infinite;
 }
+
 @keyframes breathe {
   0%,100% { opacity:1; }
   50%      { opacity:0.45; }
+}
+
+.sticky-top-bar {
+  position: sticky;
+  z-index: 1000;
+  top: 52px;
+  right: 0;
 }
 
 .content { position:relative; z-index:1; max-width:900px; margin:0 auto; }
@@ -463,7 +471,7 @@ h1 em { font-style:italic; color:var(--arc-light); }
 <div class="content">
 
   <!-- TOGGLE -->
-  <div class="top-bar">
+  <div class="top-bar sticky-top-bar">
     <div class="toggle-wrap" onclick="toggleTheme()">
       <div class="toggle-track"><div class="toggle-knob"></div></div>
       <span class="toggle-label" id="toggleLabel">Dark Mode</span>
