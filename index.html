@@ -3,539 +3,562 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Arc — Tidal Palette v3</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<title>ARC — Brand & Color System v4</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Zalando+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Zalando+Sans+SemiExpanded:wght@400;700&display=swap" rel="stylesheet">
 <style>
 /*
-  PALETTE — sampled directly from source image
-  ─────────────────────────────────────────────
-  Body (deep teal)   #3D5562   → electrified → --arc
-  Handle (teal)      #386070   → pushed vivid → --arc-light
-  Lid (slate)        #74808B   → --slate
-  Spout (dark navy)  #3E4E62   → --navy
-  Band (cool grey)   #808C95   → --band
-  Latch (near-black) #232B3E   → --void-accent / maroon-black
-  Cream (designer)   #E6DFA0   → --cream (user's intended accent)
+  ARC Platform — Brand & Color System
+  Source: ARC-visual-brand-brief-v2.md
+  ─────────────────────────────────────
+  Primary UI font:   Zalando Sans — all weights (Google Fonts)
+  Logo typeface:     Zalando Sans SemiExpanded (Google Fonts)
+  Secondary font:    Libre Caslon Text (Google Fonts)
+  Mono:              DM Mono (Google Fonts)
 */
 
+/* ── BRAND COLORS (fixed, mode-independent) ── */
 :root {
-  /* ── SOURCE COLORS ── */
-  --arc:          #1E9EBE;    /* body teal, pushed electric    */
-  --arc-light:    #28C8E8;    /* arc vivid — primary CTA       */
-  --arc-glow:     #5CE0F8;    /* tip of the arc, max bright    */
-  --arc-deep:     #0F6878;    /* pressed / active bg           */
-  --slate:        #74808B;    /* lid — muted blue-grey         */
-  --slate-light:  #9AAAB5;    /* lid lighter                   */
-  --navy:         #2C3D58;    /* spout — dark blue             */
-  --navy-light:   #3A5070;    /* navy hover                    */
-  --band:         #808C95;    /* cool grey band                */
-  --latch:        #232B3E;    /* near-black maroon-navy latch  */
-  --cream:        #E6DFA0;    /* designer accent, warm ivory   */
-
-  /* ── ARC GLOW SHADOWS ── */
-  --glow-lg:  0 0 28px rgba(40,200,232,0.55), 0 0 10px rgba(92,224,248,0.4);
-  --glow-md:  0 0 18px rgba(40,200,232,0.45), 0 0 6px rgba(92,224,248,0.3);
-  --glow-sm:  0 0 10px rgba(40,200,232,0.35);
-  --ghost-arc: rgba(40,200,232,0.09);
+  --cyan:         #4FD1F9;
+  --blue:         #5B9DF9;
+  --purple:       #A78BFA;
+  --coral:        #FF6B6B;
+  --orange:       #F97316;
+  --emerald:      #10B981;
+  --gradient-logo: linear-gradient(160deg, #4FD1F9 0%, #5B9DF9 50%, #A78BFA 100%);
+  --glow-cyan:    0 0 22px rgba(79,209,249,0.4), 0 0 8px rgba(79,209,249,0.25);
+  --glow-cyan-lg: 0 0 40px rgba(79,209,249,0.5), 0 0 14px rgba(79,209,249,0.35);
+  --glow-purple:  0 0 22px rgba(167,139,250,0.4), 0 0 8px rgba(167,139,250,0.25);
+  --ghost-cyan:   rgba(79,209,249,0.08);
 }
 
-/* ── DARK TOKENS ── */
+/* ── DARK MODE ── */
 [data-theme="dark"] {
-  --bg:             #070B0E;
-  --surface-1:      #0C1218;
-  --surface-2:      #111A22;
-  --surface-3:      #18232C;
-  --surface-4:      #1F2D38;
-  --border:         #243544;
-  --text-pri:       #E2EEF5;
-  --text-sec:       #6888A0;
-  --text-ter:       #415A6E;
-  --divider:        rgba(255,255,255,0.055);
-  --badge-bg:       rgba(0,0,0,0.5);
-  --badge-text:     rgba(255,255,255,0.5);
-  --swatch-info:    #18232C;
-  --swatch-border:  rgba(255,255,255,0.07);
-  --swatch-hover:   rgba(40,200,232,0.25);
-  --btn-ghost-bg:   #18232C;
-  --btn-ghost-bdr:  rgba(255,255,255,0.08);
-  --btn-ghost-hov:  #1F2D38;
-  --btn-ghost-txt:  #6888A0;
-  --btn-ghost-txt2: #E2EEF5;
-  --toggle-bg:      #18232C;
-  --toggle-bdr:     rgba(255,255,255,0.1);
-  --toggle-knob:    #E2EEF5;
-  --glow-bg:        radial-gradient(ellipse at 50% 0%, rgba(40,200,232,0.13) 0%, transparent 58%);
-  /* cream adapts */
-  --cream-ui:       #E6DFA0;
-  --cream-ui-bg:    rgba(230,223,160,0.12);
-  --cream-ui-bdr:   rgba(230,223,160,0.32);
-  --cream-text:     #E6DFA0;
-  --cream-dark-txt: #1C1A08;
+  --bg:           #0F1419;
+  --bg-2:         #161B22;
+  --bg-3:         #21262D;
+  --bg-4:         #2D333B;
+  --border:       #30363D;
+  --border-muted: #21262D;
+  --text-pri:     #FFFFFF;
+  --text-sec:     #8B949E;
+  --text-ter:     #6E7681;
+  --divider:      rgba(255,255,255,0.07);
+  --swatch-info:  #21262D;
+  --swatch-border:rgba(255,255,255,0.07);
+  --badge-bg:     rgba(0,0,0,0.5);
+  --badge-text:   rgba(255,255,255,0.5);
+  --toggle-bg:    #21262D;
+  --toggle-bdr:   #30363D;
+  --toggle-knob:  #ffffff;
+  --glow-bg:      radial-gradient(ellipse at 50% -10%, rgba(79,209,249,0.12) 0%, rgba(91,157,249,0.06) 40%, transparent 70%);
+  --glass-bg:     rgba(33,38,45,0.7);
+  --glass-bdr:    rgba(79,209,249,0.12);
 }
 
-/* ── LIGHT TOKENS ── */
+/* ── LIGHT MODE ── */
 [data-theme="light"] {
-  --bg:             #EEF3F7;
-  --surface-1:      #FFFFFF;
-  --surface-2:      #E8EEF4;
-  --surface-3:      #DAE2EA;
-  --surface-4:      #CDD7E0;
-  --border:         #B8C6D0;
-  --text-pri:       #0E1A24;
-  --text-sec:       #445C6E;
-  --text-ter:       #7A96A8;
-  --divider:        rgba(0,0,0,0.07);
-  --badge-bg:       rgba(255,255,255,0.85);
-  --badge-text:     rgba(14,26,36,0.65);
-  --swatch-info:    #DAE2EA;
-  --swatch-border:  rgba(0,0,0,0.09);
-  --swatch-hover:   rgba(30,158,190,0.18);
-  --btn-ghost-bg:   #E8EEF4;
-  --btn-ghost-bdr:  rgba(0,0,0,0.1);
-  --btn-ghost-hov:  #DAE2EA;
-  --btn-ghost-txt:  #445C6E;
-  --btn-ghost-txt2: #0E1A24;
-  --toggle-bg:      #DAE2EA;
-  --toggle-bdr:     rgba(0,0,0,0.1);
-  --toggle-knob:    #0E1A24;
-  --glow-bg:        radial-gradient(ellipse at 50% 0%, rgba(30,158,190,0.07) 0%, transparent 60%);
-  /* cream — much darker for light mode contrast */
-  --cream-ui:       #9A9228;
-  --cream-ui-bg:    rgba(154,146,40,0.1);
-  --cream-ui-bdr:   rgba(154,146,40,0.36);
-  --cream-text:     #7E7820;
-  --cream-dark-txt: #1C1A08;
+  --bg:           #F5F7FA;
+  --bg-2:         #FFFFFF;
+  --bg-3:         #EDF0F5;
+  --bg-4:         #E1E6EE;
+  --border:       #D0D7E0;
+  --border-muted: #E8ECF2;
+  --text-pri:     #0D1117;
+  --text-sec:     #57606A;
+  --text-ter:     #8C959F;
+  --divider:      rgba(0,0,0,0.07);
+  --swatch-info:  #EDF0F5;
+  --swatch-border:rgba(0,0,0,0.08);
+  --badge-bg:     rgba(255,255,255,0.9);
+  --badge-text:   rgba(13,17,23,0.65);
+  --toggle-bg:    #EDF0F5;
+  --toggle-bdr:   #D0D7E0;
+  --toggle-knob:  #0D1117;
+  --glow-bg:      radial-gradient(ellipse at 50% -10%, rgba(79,209,249,0.07) 0%, transparent 60%);
+  --glass-bg:     rgba(237,240,245,0.8);
+  --glass-bdr:    rgba(79,209,249,0.2);
 }
 
-/* ════════════════════════════════
+/* ══════════════════════════════════════
    BASE
-════════════════════════════════ */
+══════════════════════════════════════ */
 * { margin:0; padding:0; box-sizing:border-box; }
 
 body {
   background: var(--bg);
   color: var(--text-pri);
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Zalando Sans', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
   min-height: 100vh;
-  padding: 52px 44px 80px;
-  transition: background 0.4s ease, color 0.4s ease;
+  padding: 48px 44px 100px;
+  transition: background 0.35s, color 0.35s;
   position: relative;
 }
 
-/* breathing arc glow at top */
 body::before {
-  content: '';
-  position: fixed;
-  top: 0; left: 0; right: 0; height: 340px;
+  content:'';
+  position:fixed; top:0; left:0; right:0; height:480px;
   background: var(--glow-bg);
-  pointer-events: none; z-index: 0;
-  animation: breathe 5s ease-in-out infinite;
+  pointer-events:none; z-index:0;
+  animation: bgPulse 6s ease-in-out infinite;
 }
-@keyframes breathe {
-  0%,100% { opacity:1; }
-  50%      { opacity:0.45; }
+@keyframes bgPulse { 0%,100%{opacity:1} 50%{opacity:0.5} }
+
+.content { position:relative; z-index:1; max-width:920px; margin:0 auto; }
+
+/* ══════════════════════════════════════
+   TOGGLE — shadcn Switch style
+══════════════════════════════════════ */
+.top-bar { display:flex; justify-content:flex-end; align-items:center; gap:10px; margin-bottom:52px; }
+
+.page-switch {
+  font-size:12px; font-weight:500; letter-spacing:0.02em;
+  color:var(--text-sec); cursor:pointer; user-select:none;
+  background:var(--bg-3); border:1px solid var(--border);
+  border-radius:6px; padding:6px 14px;
+  text-decoration:none; transition:background 0.2s, color 0.2s;
 }
+.page-switch:hover { background:var(--bg-4); color:var(--text-pri); }
 
-.content { position:relative; z-index:1; max-width:900px; margin:0 auto; }
-
-/* ════════════════════════════════
-   TOGGLE
-════════════════════════════════ */
-.top-bar { display:flex; justify-content:flex-end; margin-bottom:48px; }
-
-.toggle-wrap {
-  display:flex; align-items:center; gap:10px;
-  background: var(--toggle-bg);
-  border: 1px solid var(--toggle-bdr);
-  border-radius: 999px;
-  padding: 5px 14px 5px 8px;
-  cursor: pointer; user-select: none;
-  transition: all 0.3s;
+.switch-label {
+  font-size:12px; font-weight:500; letter-spacing:0.02em;
+  color:var(--text-sec); cursor:pointer; user-select:none;
 }
-.toggle-wrap:hover { filter:brightness(1.07); }
-
-.toggle-track {
-  width:36px; height:20px;
-  background: var(--surface-3);
+.switch {
+  width:40px; height:22px;
+  background:var(--toggle-bg);
+  border:1px solid var(--toggle-bdr);
   border-radius:999px; position:relative;
-  border: 1px solid var(--border);
-  transition: background 0.35s;
+  cursor:pointer; transition:background 0.25s, border-color 0.25s;
   flex-shrink:0;
 }
-[data-theme="dark"] .toggle-track { background: var(--arc-deep); border-color: var(--arc); }
+[data-theme="dark"] .switch { background:var(--cyan); border-color:var(--cyan); }
 
-.toggle-knob {
-  width:14px; height:14px;
-  background: var(--toggle-knob);
+.switch-thumb {
+  width:16px; height:16px;
+  background:var(--toggle-knob);
   border-radius:50%; position:absolute;
   top:2px; left:2px;
-  transition: transform 0.28s cubic-bezier(.4,0,.2,1), background 0.3s, box-shadow 0.3s;
+  transition:transform 0.22s cubic-bezier(.4,0,.2,1);
+  box-shadow:0 1px 3px rgba(0,0,0,0.2);
 }
-[data-theme="dark"] .toggle-knob {
-  transform: translateX(16px);
-  background: var(--arc-glow);
-  box-shadow: var(--glow-sm);
-}
+[data-theme="dark"] .switch-thumb { transform:translateX(18px); background:#0F1419; }
 
-.toggle-label {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px; letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--text-sec);
-}
-
-/* ════════════════════════════════
+/* ══════════════════════════════════════
    HEADER
-════════════════════════════════ */
-header { margin-bottom: 60px; }
+══════════════════════════════════════ */
+header { margin-bottom:56px; }
 
 .eyebrow {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px; letter-spacing: 0.38em;
-  text-transform: uppercase;
-  color: var(--arc-glow); margin-bottom: 18px;
-}
-
-h1 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(50px,6.5vw,78px);
-  font-weight: 600; line-height: 0.97;
-  letter-spacing: -0.015em;
-  color: var(--text-pri);
-  transition: color 0.4s;
-}
-h1 em { font-style:italic; color:var(--arc-light); }
-
-.tagline {
-  margin-top:16px;
   font-family:'DM Mono',monospace;
-  font-size:10.5px; letter-spacing:0.1em;
-  color:var(--text-sec); opacity:0.55;
+  font-size:10px; letter-spacing:0.35em; text-transform:uppercase;
+  color:var(--cyan); margin-bottom:20px; opacity:0.8;
 }
 
-/* ════════════════════════════════
+.header-logo { margin-bottom:12px; }
+.header-logo svg path { transition: fill 0.35s; }
+
+.header-tagline {
+  font-size:15px; font-weight:400; color:var(--text-sec);
+  font-family:'Libre Caslon Text',serif;
+  margin-top:6px;
+}
+
+/* ══════════════════════════════════════
    DIVIDER
-════════════════════════════════ */
+══════════════════════════════════════ */
 .divider {
   height:1px;
-  background: linear-gradient(90deg, var(--arc-light), rgba(40,200,232,0.15), transparent);
-  margin: 44px 0 36px; opacity:0.5;
+  background:linear-gradient(90deg, var(--cyan), var(--blue), var(--purple), transparent);
+  margin:44px 0 36px; opacity:0.3;
 }
-.divider.faint { opacity:0.2; }
+.divider.faint { opacity:0.12; }
 
-/* ════════════════════════════════
+/* ══════════════════════════════════════
    SECTION LABEL
-════════════════════════════════ */
+══════════════════════════════════════ */
 .section-label {
   font-family:'DM Mono',monospace;
-  font-size:9.5px; letter-spacing:0.32em;
-  text-transform:uppercase;
-  color:var(--text-sec); opacity:0.5;
-  margin-bottom:18px;
-  display:flex; align-items:center; gap:14px;
+  font-size:9.5px; letter-spacing:0.32em; text-transform:uppercase;
+  color:var(--text-ter); margin-bottom:16px;
+  display:flex; align-items:center; gap:12px;
 }
 .section-label::after { content:''; flex:1; height:1px; background:var(--divider); }
 
-/* ════════════════════════════════
-   SOURCE CARD
-════════════════════════════════ */
-.source-card {
-  background: var(--surface-1);
-  border: 1px solid var(--swatch-border);
-  border-radius: 14px;
-  padding: 24px 28px; margin-bottom:44px;
-  display:flex; align-items:center; gap:24px; flex-wrap:wrap;
-  transition: background 0.4s;
+/* ══════════════════════════════════════
+   SHADCN-STYLE CARD
+══════════════════════════════════════ */
+.card {
+  background:var(--bg-2);
+  border:1px solid var(--border);
+  border-radius:12px;
+  transition:background 0.35s, border-color 0.2s;
 }
-.source-strips { display:flex; gap:5px; flex-shrink:0; }
-.strip {
-  width:28px; height:80px; border-radius:7px;
-  border: 1px solid rgba(0,0,0,0.1);
-  position:relative; overflow:hidden;
-}
-/* electric shimmer on arc strip */
-.strip.arc-strip::after {
-  content:'';
-  position:absolute; inset:0;
-  background: linear-gradient(160deg, rgba(255,255,255,0.25) 0%, transparent 50%);
-}
-.source-note {
-  font-family:'DM Mono',monospace;
-  font-size:10px; color:var(--text-sec);
-  letter-spacing:0.08em; line-height:1.9; opacity:0.65;
-}
-.source-note strong {
-  display:block; margin-bottom:4px;
-  font-family:'DM Sans',sans-serif;
-  font-size:12px; font-weight:600;
-  letter-spacing:0; color:var(--text-pri);
+.card:hover { border-color:rgba(79,209,249,0.25); }
+
+.card-glass {
+  background:var(--glass-bg);
+  border:1px solid var(--glass-bdr);
+  border-radius:12px;
+  backdrop-filter:blur(12px);
+  transition:background 0.35s;
 }
 
-/* ════════════════════════════════
+/* ══════════════════════════════════════
    SWATCHES
-════════════════════════════════ */
+══════════════════════════════════════ */
 .swatch-grid {
   display:grid;
-  grid-template-columns: repeat(auto-fill, minmax(148px,1fr));
-  gap:10px; margin-bottom:44px;
+  grid-template-columns:repeat(auto-fill,minmax(144px,1fr));
+  gap:8px; margin-bottom:40px;
 }
 .swatch {
   border-radius:10px; overflow:hidden;
-  border: 1px solid var(--swatch-border);
-  transition: transform 0.2s ease, border-color 0.2s ease;
+  border:1px solid var(--swatch-border);
+  transition:transform 0.15s ease, border-color 0.2s;
 }
-.swatch:hover { transform:translateY(-3px); border-color:var(--swatch-hover); }
+.swatch:hover { transform:translateY(-2px); border-color:rgba(79,209,249,0.3); }
 
 .swatch-color {
-  height:90px;
+  height:80px; position:relative;
   display:flex; align-items:flex-end; justify-content:flex-end;
-  padding:8px 10px; position:relative;
+  padding:7px 9px;
 }
-.swatch-color.has-glow::before {
-  content:'';
-  position:absolute; inset:0;
-  box-shadow: inset 0 0 35px rgba(40,200,232,0.28);
+.swatch-color.has-glow::after {
+  content:''; position:absolute; inset:0;
+  box-shadow:inset 0 0 30px rgba(79,209,249,0.2);
   pointer-events:none;
 }
+.swatch-color.has-purple-glow::after {
+  box-shadow:inset 0 0 30px rgba(167,139,250,0.2);
+}
 .hex-badge {
-  font-family:'DM Mono',monospace; font-size:9px;
-  background:var(--badge-bg); padding:3px 7px;
-  border-radius:4px; color:var(--badge-text);
-  backdrop-filter:blur(6px); letter-spacing:0.04em;
+  font-family:'DM Mono',monospace; font-size:8.5px;
+  background:var(--badge-bg); color:var(--badge-text);
+  padding:2px 6px; border-radius:4px;
+  backdrop-filter:blur(8px); letter-spacing:0.04em;
 }
 .swatch-info {
-  padding:10px 12px 13px;
-  background: var(--swatch-info);
-  transition: background 0.4s;
+  padding:9px 11px 12px;
+  background:var(--swatch-info);
+  transition: background 0.35s;
+  cursor: pointer;
+  height: 100%;
 }
-.swatch-name { font-size:12.5px; font-weight:600; margin-bottom:2px; color:var(--text-pri); transition:color 0.4s; }
-.swatch-role { font-family:'DM Mono',monospace; font-size:9px; color:var(--text-sec); opacity:0.6; letter-spacing:0.04em; }
+.swatch-name { font-size:12px; font-weight:600; margin-bottom:1px; color:var(--text-pri); }
+.swatch-role { font-family:'DM Mono',monospace; font-size:8.5px; color:var(--text-sec); opacity:0.65; letter-spacing:0.04em; }
 
-/* ════════════════════════════════
-   BUTTONS
-════════════════════════════════ */
+/* gradient swatch special */
+.swatch-gradient .swatch-color {
+  background: linear-gradient(160deg, #4FD1F9 0%, #5B9DF9 50%, #A78BFA 100%);
+}
+
+/* ══════════════════════════════════════
+   SHADCN BADGE
+══════════════════════════════════════ */
+.badge {
+  display:inline-flex; align-items:center; gap:5px;
+  font-size:11px; font-weight:500; letter-spacing:0.02em;
+  padding:2px 9px; border-radius:999px;
+  border:1px solid transparent;
+}
+.badge-default {
+  background:var(--bg-3); color:var(--text-sec);
+  border-color:var(--border);
+}
+.badge-cyan {
+  background:rgba(79,209,249,0.1); color:var(--cyan);
+  border-color:rgba(79,209,249,0.3);
+}
+.badge-purple {
+  background:rgba(167,139,250,0.1); color:var(--purple);
+  border-color:rgba(167,139,250,0.3);
+}
+.badge-coral {
+  background:rgba(255,107,107,0.1); color:var(--coral);
+  border-color:rgba(255,107,107,0.3);
+}
+.badge-emerald {
+  background:rgba(16,185,129,0.1); color:var(--emerald);
+  border-color:rgba(16,185,129,0.3);
+}
+.badge-orange {
+  background:rgba(249,115,22,0.1); color:var(--orange);
+  border-color:rgba(249,115,22,0.3);
+}
+
+/* ══════════════════════════════════════
+   SHADCN BUTTONS
+══════════════════════════════════════ */
 .btn {
-  padding:10px 22px; border-radius:7px;
-  font-family:'DM Sans',sans-serif; font-size:13px;
-  font-weight:600; cursor:pointer; border:none;
-  letter-spacing:0.01em;
-  transition: all 0.18s ease;
+  display:inline-flex; align-items:center; justify-content:center; gap:6px;
+  padding:8px 18px; border-radius:8px;
+  font-family:'Zalando Sans',sans-serif; font-size:13px; font-weight:500;
+  cursor:pointer; border:none; letter-spacing:0.01em;
+  transition:all 0.15s ease; white-space:nowrap;
 }
-.btn.primary {
-  background: var(--arc-light); color:#060D10;
-  box-shadow: var(--glow-md);
+.btn-primary {
+  background:var(--cyan); color:#0F1419;
+  box-shadow: var(--glow-cyan);
 }
-.btn.primary:hover { background:var(--arc-glow); box-shadow:var(--glow-lg); }
+.btn-primary:hover { filter:brightness(1.1); box-shadow:var(--glow-cyan-lg); }
 
-.btn.secondary {
-  background:transparent; color:var(--arc-light);
-  border:1px solid var(--arc);
+.btn-gradient {
+  background:linear-gradient(135deg,#4FD1F9,#5B9DF9,#A78BFA);
+  background-size:200%;
+  color:#fff;
+  box-shadow: var(--glow-cyan);
+  animation: gradShift 4s linear infinite;
 }
-.btn.secondary:hover { background:var(--ghost-arc); border-color:var(--arc-light); }
+@keyframes gradShift { 0%{background-position:0%} 100%{background-position:200%} }
+.btn-gradient:hover { filter:brightness(1.1); }
 
-.btn.navy-btn {
-  background:var(--navy); color:var(--arc-glow);
-  box-shadow:0 2px 16px rgba(44,61,88,0.4);
+.btn-secondary {
+  background:transparent; color:var(--cyan);
+  border:1px solid rgba(79,209,249,0.4);
 }
-.btn.navy-btn:hover { background:var(--navy-light); box-shadow:0 4px 24px rgba(44,61,88,0.5); }
+.btn-secondary:hover { background:var(--ghost-cyan); border-color:var(--cyan); }
 
-.btn.ghost {
-  background:var(--btn-ghost-bg); color:var(--btn-ghost-txt);
-  border:1px solid var(--btn-ghost-bdr);
+.btn-purple {
+  background:var(--purple); color:#fff;
+  box-shadow:var(--glow-purple);
 }
-.btn.ghost:hover { background:var(--btn-ghost-hov); color:var(--btn-ghost-txt2); }
+.btn-purple:hover { filter:brightness(1.1); box-shadow:var(--glow-purple); }
 
-.btn.cream-btn {
-  background:var(--cream-ui); color:var(--cream-dark-txt);
-  font-weight:700;
+.btn-ghost {
+  background:transparent; color:var(--text-sec);
+  border:1px solid var(--border);
 }
-[data-theme="dark"]  .btn.cream-btn { box-shadow:0 2px 14px rgba(230,223,160,0.2); }
-[data-theme="light"] .btn.cream-btn { box-shadow:0 2px 14px rgba(122,114,24,0.2); }
+.btn-ghost:hover { background:var(--bg-3); color:var(--text-pri); }
 
-/* ════════════════════════════════
-   DEMO CARD
-════════════════════════════════ */
-.demo-card {
-  background:var(--surface-1); border:1px solid var(--swatch-border);
-  border-radius:14px; padding:28px 32px; margin-bottom:44px;
-  display:flex; align-items:center; gap:12px; flex-wrap:wrap;
-  transition:background 0.4s;
+.btn-coral {
+  background:var(--coral); color:#fff;
+  box-shadow:0 0 18px rgba(255,107,107,0.3);
 }
-.demo-label {
-  font-family:'DM Mono',monospace; font-size:9px;
-  color:var(--text-sec); opacity:0.38; letter-spacing:0.18em; margin-left:auto;
+.btn-emerald {
+  background:var(--emerald); color:#fff;
+  box-shadow:0 0 18px rgba(16,185,129,0.3);
 }
 
-/* ════════════════════════════════
+/* ══════════════════════════════════════
    TYPE DEMO
-════════════════════════════════ */
+══════════════════════════════════════ */
 .type-demo {
-  background:var(--surface-2); border:1px solid var(--swatch-border);
-  border-radius:14px; padding:38px 42px; margin-bottom:44px;
-  transition:background 0.4s;
   position:relative; overflow:hidden;
+  padding:40px 44px; margin-bottom:40px;
 }
-/* subtle electric arc line behind type */
 .type-demo::before {
   content:'';
-  position:absolute; bottom:0; left:0; right:0; height:2px;
-  background: linear-gradient(90deg, transparent, var(--arc-light), var(--arc-glow), var(--cream), transparent);
-  opacity:0.5;
+  position:absolute; bottom:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg,transparent,var(--cyan),var(--blue),var(--purple),transparent);
+  opacity:0.4;
 }
 .type-hero {
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(32px,4.5vw,52px); font-weight:600;
-  line-height:1.12; letter-spacing:-0.015em;
-  color:var(--text-pri); transition:color 0.4s;
+  font-family:'Zalando Sans',sans-serif;
+  font-size:clamp(32px,4vw,48px);
+  font-weight:800; line-height:1.1; letter-spacing:-0.025em;
+  color:var(--text-pri); margin-bottom:12px;
 }
-.type-hero span { color:var(--arc-light); }
-.type-hero em   { font-style:italic; color:var(--arc-glow); }
-.type-hero .warm { color:var(--cream-text); font-style:italic; }
-.type-sub {
-  margin-top:14px; font-size:13px; color:var(--text-sec);
-  line-height:1.72; max-width:480px;
+.type-hero .grad {
+  background:var(--gradient-logo);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  background-clip:text;
 }
-.type-tag {
+.type-caslon {
+  font-family:'Libre Caslon Text',serif;
+  font-size:18px; font-style:italic;
+  color:var(--text-sec); line-height:1.7; max-width:520px;
+  margin-bottom:20px;
+}
+.live-chip {
   display:inline-flex; align-items:center; gap:7px;
-  margin-top:20px;
-  font-family:'DM Mono',monospace; font-size:10px;
-  letter-spacing:0.22em; color:var(--arc-light);
-  border:1px solid var(--arc); padding:5px 13px;
-  border-radius:4px; opacity:0.8;
+  font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.2em;
+  color:var(--cyan); border:1px solid rgba(79,209,249,0.3);
+  padding:5px 12px; border-radius:6px;
 }
 .live-dot {
   width:6px; height:6px; border-radius:50%;
-  background:var(--arc-glow);
-  box-shadow:var(--glow-sm);
-  animation:livePulse 1.8s ease-in-out infinite;
+  background:var(--cyan); box-shadow:0 0 8px var(--cyan);
+  animation:pulse 1.8s ease-in-out infinite;
 }
-@keyframes livePulse {
-  0%,100% { opacity:1; transform:scale(1); }
-  50%      { opacity:0.5; transform:scale(0.75); }
-}
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.7)} }
 
-/* ════════════════════════════════
-   USAGE GUIDE
-════════════════════════════════ */
-.usage-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:44px; }
-@media(max-width:560px) { .usage-grid { grid-template-columns:1fr; } }
-
-.usage-card {
-  background:var(--surface-1); border:1px solid var(--swatch-border);
-  border-radius:12px; padding:22px 24px; transition:background 0.4s;
+/* ══════════════════════════════════════
+   PLATFORM SECTIONS TABLE
+══════════════════════════════════════ */
+.section-table { width:100%; border-collapse:collapse; margin-bottom:40px; }
+.section-table th {
+  text-align:left; padding:8px 14px;
+  font-family:'DM Mono',monospace; font-size:9px;
+  letter-spacing:0.25em; text-transform:uppercase;
+  color:var(--text-ter); border-bottom:1px solid var(--divider);
+  font-weight:400;
 }
+.section-table td {
+  padding:12px 14px; border-bottom:1px solid var(--divider);
+  font-size:13px; vertical-align:middle;
+}
+.section-table tr:last-child td { border-bottom:none; }
+.section-table tr:hover td { background:var(--bg-3); }
+.section-name { font-weight:600; color:var(--text-pri); }
+.section-mood { font-size:11px; color:var(--text-sec); margin-top:2px; font-style:italic; font-family:'Libre Caslon Text',serif; }
+
+/* ══════════════════════════════════════
+   USAGE GRID (shadcn card style)
+══════════════════════════════════════ */
+.usage-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:40px; }
+@media(max-width:560px){ .usage-grid{grid-template-columns:1fr} }
+
+.usage-card { padding:18px 20px; }
 .usage-card h3 {
-  font-size:13px; font-weight:600; margin-bottom:7px;
-  display:flex; align-items:center; gap:9px; color:var(--text-pri);
+  font-size:13px; font-weight:600; margin-bottom:6px;
+  display:flex; align-items:center; gap:8px; color:var(--text-pri);
 }
 .usage-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
-.usage-card p { font-size:12px; color:var(--text-sec); line-height:1.78; }
+.usage-card p { font-size:12px; color:var(--text-sec); line-height:1.75; }
 
-/* ════════════════════════════════
-   CREAM EXAMPLES
-════════════════════════════════ */
-.cream-section { display:flex; flex-direction:column; gap:12px; margin-bottom:16px; }
-.cream-row { display:flex; gap:12px; flex-wrap:wrap; }
+/* ══════════════════════════════════════
+   TYPOGRAPHY SPECIMEN
+══════════════════════════════════════ */
+.type-specimen { margin-bottom:40px; }
+.type-row {
+  display:flex; align-items:baseline; gap:20px;
+  padding:14px 0; border-bottom:1px solid var(--divider);
+}
+.type-row:last-child { border-bottom:none; }
+.type-meta {
+  font-family:'DM Mono',monospace; font-size:8.5px;
+  color:var(--text-ter); letter-spacing:0.1em;
+  width:130px; flex-shrink:0;
+}
+.type-sample { color:var(--text-pri); }
+.ts-900 { font-weight:900; font-size:28px; letter-spacing:-0.02em; }
+.ts-800 { font-weight:800; font-size:24px; letter-spacing:-0.02em; }
+.ts-700 { font-weight:700; font-size:20px; }
+.ts-600 { font-weight:600; font-size:17px; }
+.ts-500 { font-weight:500; font-size:15px; }
+.ts-400 { font-weight:400; font-size:15px; }
+.ts-300 { font-weight:300; font-size:15px; }
+.ts-200 { font-weight:200; font-size:15px; }
+.ts-100 { font-weight:100; font-size:15px; }
+.ts-caslon { font-family:'Libre Caslon Text',serif; font-size:16px; font-style:italic; }
+.ts-caslon-b { font-family:'Libre Caslon Text',serif; font-size:16px; font-weight:700; }
+.ts-mono  { font-family:'DM Mono',monospace; font-size:13px; color:var(--cyan); }
 
-.ex-card {
-  flex:1; min-width:220px;
-  background:var(--surface-1); border:1px solid var(--swatch-border);
-  border-radius:12px; padding:20px 22px;
-  display:flex; flex-direction:column; gap:14px;
-  transition:background 0.4s;
-}
-.ex-label {
-  font-family:'DM Mono',monospace; font-size:9px;
-  letter-spacing:0.28em; text-transform:uppercase;
-  color:var(--text-sec); opacity:0.48;
-}
-
-.cream-tag {
-  display:inline-block;
-  background:var(--cream-ui-bg); color:var(--cream-text);
-  border:1px solid var(--cream-ui-bdr);
-  font-family:'DM Mono',monospace; font-size:10px;
-  letter-spacing:0.1em; padding:4px 10px; border-radius:4px;
-}
-
-/* ════════════════════════════════
-   HEADER LOGO
-════════════════════════════════ */
-.header-logo {
-  display:block;
-  margin-bottom:10px;
-}
-.header-logo h1 {
-  font-family:'DM Sans',sans-serif;
-  font-size:clamp(50px,6.5vw,78px);
-  font-weight:600; line-height:1;
-  letter-spacing:-0.02em;
-  color:var(--text-pri); transition:color 0.4s;
-}
-.header-logo h1 em { font-style:normal; color:var(--arc-light); }
-
-/* ════════════════════════════════
-   TYPEFACE SECTION
-════════════════════════════════ */
-.typeface-card {
-  background:var(--surface-1); border:1px solid var(--swatch-border);
-  border-radius:14px; padding:32px 36px; margin-bottom:44px;
-  transition:background 0.4s;
-}
-.typeface-name {
-  font-family:'DM Mono',monospace; font-size:10px;
-  letter-spacing:0.28em; text-transform:uppercase;
-  color:var(--text-sec); opacity:0.55; margin-bottom:20px;
-}
-.typeface-display {
-  font-family:'DM Sans',sans-serif;
-  font-size:clamp(42px,6vw,72px);
-  font-weight:700; line-height:1;
-  letter-spacing:-0.02em;
-  color:var(--text-pri); transition:color 0.4s;
-  margin-bottom:16px;
-}
-.typeface-display span { color:var(--arc-light); }
-.typeface-alphabet {
-  font-family:'DM Sans',sans-serif;
-  font-size:13px; font-weight:600;
-  color:var(--text-sec); letter-spacing:0.04em;
-  line-height:1.8; opacity:0.6;
-  border-top:1px solid var(--divider); padding-top:16px; margin-top:4px;
-}
-
-/* ════════════════════════════════
-   LOGO USAGE SECTION
-════════════════════════════════ */
+/* ══════════════════════════════════════
+   LOGO SECTION
+══════════════════════════════════════ */
 .logo-grid {
-  display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
-  gap:10px; margin-bottom:44px;
+  display:grid; grid-template-columns:repeat(auto-fill,minmax(175px,1fr));
+  gap:8px; margin-bottom:40px;
 }
 .logo-tile {
   border-radius:10px; overflow:hidden;
   border:1px solid var(--swatch-border);
-  display:flex; flex-direction:column;
 }
 .logo-tile-bg {
-  height:110px; display:flex;
+  height:108px; display:flex;
   align-items:center; justify-content:center;
-  padding:20px 24px;
+  padding:20px;
 }
 .logo-tile-bg svg { max-width:100%; height:auto; }
 .logo-tile-label {
-  padding:9px 12px 11px;
+  padding:8px 12px 10px;
   background:var(--swatch-info);
   font-family:'DM Mono',monospace; font-size:9px;
   letter-spacing:0.12em; text-transform:uppercase;
   color:var(--text-sec); opacity:0.6;
-  transition:background 0.4s;
+  transition:background 0.35s;
 }
-.logo-svg { flex-shrink:0; }
-.logo-wordmark {
-  font-family:'DM Sans',sans-serif;
-  font-size:28px; font-weight:600;
-  letter-spacing:-0.02em; line-height:1;
+
+/* ══════════════════════════════════════
+   COMPONENT DEMOS
+══════════════════════════════════════ */
+.demo-row {
+  display:flex; flex-wrap:wrap; align-items:center; gap:10px;
+  padding:24px 28px;
+  margin-bottom:40px;
 }
+.demo-label {
+  font-family:'DM Mono',monospace; font-size:9px;
+  color:var(--text-ter); letter-spacing:0.18em; margin-left:auto;
+}
+
+/* shadcn input */
+.input {
+  background:var(--bg-2); border:1px solid var(--border);
+  border-radius:8px; padding:8px 12px;
+  font-family:'Zalando Sans',sans-serif; font-size:13px;
+  color:var(--text-pri); outline:none;
+  transition:border-color 0.15s, box-shadow 0.15s;
+  width:200px;
+}
+.input::placeholder { color:var(--text-ter); }
+.input:focus {
+  border-color:var(--cyan);
+  box-shadow:0 0 0 3px rgba(79,209,249,0.15);
+}
+
+/* shadcn select-like */
+.select {
+  background:var(--bg-2); border:1px solid var(--border);
+  border-radius:8px; padding:8px 12px;
+  font-family:'Zalando Sans',sans-serif; font-size:13px;
+  color:var(--text-pri); cursor:pointer;
+  appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238B949E' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat; background-position:right 10px center;
+  padding-right:30px;
+}
+
+/* profile card */
+.profile-card {
+  display:flex; align-items:center; gap:14px;
+  padding:16px 20px;
+}
+.avatar {
+  width:40px; height:40px; border-radius:50%;
+  background:linear-gradient(135deg,#4FD1F9,#A78BFA);
+  display:flex; align-items:center; justify-content:center;
+  font-weight:700; font-size:14px; color:#0F1419; flex-shrink:0;
+}
+.profile-info h4 { font-size:13px; font-weight:600; margin-bottom:2px; }
+.profile-info p  { font-size:11px; color:var(--text-sec); }
+.profile-badge   { margin-left:auto; }
+
+/* notification item */
+.notif {
+  display:flex; align-items:flex-start; gap:12px;
+  padding:14px 20px; border-bottom:1px solid var(--divider);
+}
+.notif:last-child { border-bottom:none; }
+.notif-icon {
+  width:32px; height:32px; border-radius:8px; flex-shrink:0;
+  display:flex; align-items:center; justify-content:center; font-size:15px;
+}
+.notif-body h5  { font-size:12px; font-weight:600; margin-bottom:2px; }
+.notif-body p   { font-size:11px; color:var(--text-sec); }
+.notif-time     { font-family:'DM Mono',monospace; font-size:9px; color:var(--text-ter); margin-left:auto; white-space:nowrap; }
+
+/* gig card */
+.gig-card { padding:18px 20px; }
+.gig-header { display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:10px; }
+.gig-venue  { font-size:14px; font-weight:700; margin-bottom:2px; }
+.gig-meta   { font-size:11px; color:var(--text-sec); }
+.gig-pay    { font-size:18px; font-weight:800; color:var(--cyan); }
+.gig-tags   { display:flex; gap:6px; flex-wrap:wrap; margin-top:12px; }
+.gig-cta    { display:flex; gap:8px; margin-top:14px; }
+
+/* progress bar */
+.progress-wrap { padding:0 20px 18px; }
+.progress-label { display:flex; justify-content:space-between; font-size:11px; color:var(--text-sec); margin-bottom:6px; }
+.progress-track { height:4px; background:var(--bg-4); border-radius:999px; overflow:hidden; }
+.progress-fill  { height:100%; border-radius:999px; }
+
+/* ══════════════════════════════════════
+   FOUNDATIONS SWATCHES (JS-injected)
+══════════════════════════════════════ */
 </style>
 </head>
 <body>
@@ -543,435 +566,427 @@ h1 em { font-style:italic; color:var(--arc-light); }
 
   <!-- TOGGLE -->
   <div class="top-bar">
-    <div class="toggle-wrap" onclick="toggleTheme()">
-      <div class="toggle-track"><div class="toggle-knob"></div></div>
-      <span class="toggle-label" id="toggleLabel">Dark Mode</span>
-    </div>
+    <!-- <a href="tidal.html" class="page-switch">Tidal View</a> -->
+    <span class="switch-label" onclick="toggleTheme()" id="toggleLabel">Dark Mode</span>
+    <div class="switch" onclick="toggleTheme()"><div class="switch-thumb"></div></div>
   </div>
 
   <!-- HEADER -->
   <header>
-    <div class="eyebrow">// Brand & Color System</div>
+    <div class="eyebrow">// Brand & Color System · v3</div>
     <div class="header-logo">
-      <svg xmlns="http://www.w3.org/2000/svg" width="235" height="98" viewBox="0 0 470.516 196.246">
+      <svg xmlns="http://www.w3.org/2000/svg" width="220" height="92" viewBox="0 0 470.516 196.246">
         <g transform="translate(-14862.321 -9506.995)">
-          <path d="M41.385,2.1q-10.823,0-17.957-3.65a24.54,24.54,0,0,1-10.6-9.846,27.293,27.293,0,0,1-3.47-13.565A25.241,25.241,0,0,1,13.433-39.2q4.078-6.173,12.413-9.693t20.94-3.521H68.162a35.013,35.013,0,0,0-1.44-10.961,11.469,11.469,0,0,0-4.959-6.416q-3.519-2.133-9.814-2.133a19.632,19.632,0,0,0-10.594,2.655,11.664,11.664,0,0,0-5.306,8.042H12.327a31.443,31.443,0,0,1,6.111-16.146A34.009,34.009,0,0,1,32.3-87.995a48.994,48.994,0,0,1,19.759-3.793q12.622,0,21.737,4.125A30.914,30.914,0,0,1,87.788-75.631q4.874,7.906,4.874,19.4V0H72.1L69.314-13.305a28.82,28.82,0,0,1-4.545,6.223A29.236,29.236,0,0,1,58.615-2.2,29.517,29.517,0,0,1,50.847.982,37.616,37.616,0,0,1,41.385,2.1Zm5.945-18.845a18.069,18.069,0,0,0,7.64-1.572,18.065,18.065,0,0,0,5.953-4.4,23.1,23.1,0,0,0,4.1-6.558,31.135,31.135,0,0,0,2.129-8.019v-.372H49.607a21.433,21.433,0,0,0-8.153,1.329,9.835,9.835,0,0,0-4.713,3.7,10.026,10.026,0,0,0-1.512,5.507,10.094,10.094,0,0,0,1.524,5.683,9.525,9.525,0,0,0,4.26,3.5A15.667,15.667,0,0,0,47.329-16.745ZM107.969,0V-89.687h21.746l2.256,16.051a36.771,36.771,0,0,1,8.369-9.83,35.456,35.456,0,0,1,11.412-6.173,45.2,45.2,0,0,1,14.276-2.148v25.875H155.764a36.146,36.146,0,0,0-9.237,1.127,19.08,19.08,0,0,0-7.443,3.761,16.874,16.874,0,0,0-4.892,7.172,32.189,32.189,0,0,0-1.723,11.333V0ZM214.834,2.1a46.287,46.287,0,0,1-23.712-5.992,42.515,42.515,0,0,1-16.1-16.477,48.4,48.4,0,0,1-5.8-23.826q0-14.071,5.8-24.767a42.642,42.642,0,0,1,16.1-16.76,45.886,45.886,0,0,1,23.729-6.065q17.153,0,28.785,9.03T258.5-57.725H232.525a16.588,16.588,0,0,0-6.341-9.624,18.964,18.964,0,0,0-11.525-3.5,18.839,18.839,0,0,0-10.835,3.136,20.075,20.075,0,0,0-7.131,8.961,35.065,35.065,0,0,0-2.506,13.913,38.257,38.257,0,0,0,1.43,10.853,24.063,24.063,0,0,0,4.114,8.226,18.1,18.1,0,0,0,6.47,5.188,19.434,19.434,0,0,0,8.459,1.8,20.448,20.448,0,0,0,8.148-1.544,16.771,16.771,0,0,0,6.154-4.517,16.723,16.723,0,0,0,3.564-7.127H258.5Q255.3-16.39,243.591-7.145T214.834,2.1Z" transform="translate(15074.335 9685.142)" fill="var(--arc-light)"/>
-          <path d="M186.1,196.245h0l-49.979,0q-.156,0-.314,0A11.1,11.1,0,0,1,124.645,185.2q0-.44.034-.872l.378-49.933L81.181,192.375l-.054.026A11.178,11.178,0,0,1,73,196.241l-.006,0h-.117l-.211,0-.214,0-60.823-.008q-.233.01-.469.01A11.1,11.1,0,0,1,0,185.2a10.918,10.918,0,0,1,1.951-6.241v0l.033-.045q.188-.269.392-.525L70.627,86.855h54.43V134.4l54.707-70.168H124.373v-.016h-.127V10.837l.136-.133A11.1,11.1,0,0,1,135.206.114L135.323,0H186.4l.114.114a11.045,11.045,0,0,1,10.723,12.763V38.028c.051.824.076,1.656.076,2.492s-.025,1.657-.075,2.475l.134,142.058h0q0,.073,0,.146a11.1,11.1,0,0,1-11.158,11.046Z" transform="translate(14862.321 9506.995)" fill="var(--arc-light)"/>
+          <path d="M41.385,2.1q-10.823,0-17.957-3.65a24.54,24.54,0,0,1-10.6-9.846,27.293,27.293,0,0,1-3.47-13.565A25.241,25.241,0,0,1,13.433-39.2q4.078-6.173,12.413-9.693t20.94-3.521H68.162a35.013,35.013,0,0,0-1.44-10.961,11.469,11.469,0,0,0-4.959-6.416q-3.519-2.133-9.814-2.133a19.632,19.632,0,0,0-10.594,2.655,11.664,11.664,0,0,0-5.306,8.042H12.327a31.443,31.443,0,0,1,6.111-16.146A34.009,34.009,0,0,1,32.3-87.995a48.994,48.994,0,0,1,19.759-3.793q12.622,0,21.737,4.125A30.914,30.914,0,0,1,87.788-75.631q4.874,7.906,4.874,19.4V0H72.1L69.314-13.305a28.82,28.82,0,0,1-4.545,6.223A29.236,29.236,0,0,1,58.615-2.2,29.517,29.517,0,0,1,50.847.982,37.616,37.616,0,0,1,41.385,2.1Zm5.945-18.845a18.069,18.069,0,0,0,7.64-1.572,18.065,18.065,0,0,0,5.953-4.4,23.1,23.1,0,0,0,4.1-6.558,31.135,31.135,0,0,0,2.129-8.019v-.372H49.607a21.433,21.433,0,0,0-8.153,1.329,9.835,9.835,0,0,0-4.713,3.7,10.026,10.026,0,0,0-1.512,5.507,10.094,10.094,0,0,0,1.524,5.683,9.525,9.525,0,0,0,4.26,3.5A15.667,15.667,0,0,0,47.329-16.745ZM107.969,0V-89.687h21.746l2.256,16.051a36.771,36.771,0,0,1,8.369-9.83,35.456,35.456,0,0,1,11.412-6.173,45.2,45.2,0,0,1,14.276-2.148v25.875H155.764a36.146,36.146,0,0,0-9.237,1.127,19.08,19.08,0,0,0-7.443,3.761,16.874,16.874,0,0,0-4.892,7.172,32.189,32.189,0,0,0-1.723,11.333V0ZM214.834,2.1a46.287,46.287,0,0,1-23.712-5.992,42.515,42.515,0,0,1-16.1-16.477,48.4,48.4,0,0,1-5.8-23.826q0-14.071,5.8-24.767a42.642,42.642,0,0,1,16.1-16.76,45.886,45.886,0,0,1,23.729-6.065q17.153,0,28.785,9.03T258.5-57.725H232.525a16.588,16.588,0,0,0-6.341-9.624,18.964,18.964,0,0,0-11.525-3.5,18.839,18.839,0,0,0-10.835,3.136,20.075,20.075,0,0,0-7.131,8.961,35.065,35.065,0,0,0-2.506,13.913,38.257,38.257,0,0,0,1.43,10.853,24.063,24.063,0,0,0,4.114,8.226,18.1,18.1,0,0,0,6.47,5.188,19.434,19.434,0,0,0,8.459,1.8,20.448,20.448,0,0,0,8.148-1.544,16.771,16.771,0,0,0,6.154-4.517,16.723,16.723,0,0,0,3.564-7.127H258.5Q255.3-16.39,243.591-7.145T214.834,2.1Z" transform="translate(15074.335 9685.142)" fill="url(#logoGrad)"/>
+          <path d="M186.1,196.245h0l-49.979,0q-.156,0-.314,0A11.1,11.1,0,0,1,124.645,185.2q0-.44.034-.872l.378-49.933L81.181,192.375l-.054.026A11.178,11.178,0,0,1,73,196.241l-.006,0h-.117l-.211,0-.214,0-60.823-.008q-.233.01-.469.01A11.1,11.1,0,0,1,0,185.2a10.918,10.918,0,0,1,1.951-6.241v0l.033-.045q.188-.269.392-.525L70.627,86.855h54.43V134.4l54.707-70.168H124.373v-.016h-.127V10.837l.136-.133A11.1,11.1,0,0,1,135.206.114L135.323,0H186.4l.114.114a11.045,11.045,0,0,1,10.723,12.763V38.028c.051.824.076,1.656.076,2.492s-.025,1.657-.075,2.475l.134,142.058h0q0,.073,0,.146a11.1,11.1,0,0,1-11.158,11.046Z" transform="translate(14862.321 9506.995)" fill="url(#logoGrad)"/>
+          <defs>
+            <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#4FD1F9"/>
+              <stop offset="50%" stop-color="#5B9DF9"/>
+              <stop offset="100%" stop-color="#A78BFA"/>
+            </linearGradient>
+          </defs>
         </g>
       </svg>
     </div>
-    <p class="tagline" id="modeTag">// ELECTRIC · DARK FIRST</p>
+    <p class="header-tagline">Make music. We got the rest.</p>
+    <p style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.15em;color:var(--text-ter);margin-top:10px;opacity:0.7;">
+      Zalando Sans · Zalando Sans SemiExpanded · Libre Caslon Text · DM Mono &nbsp;·&nbsp;
+      <span style="color:rgba(79,209,249,0.5);">All loaded via Google Fonts</span>
+    </p>
   </header>
 
   <div class="divider"></div>
 
-  <!-- SOURCE -->
-  <div class="section-label">00 — Palette Overview</div>
-  <div class="source-card">
-    <div class="source-strips">
-      <div class="strip arc-strip" style="background:#1E9EBE;box-shadow:0 0 14px rgba(40,200,232,0.5);"></div>
-      <div class="strip" style="background:#74808B;"></div>
-      <div class="strip" style="background:#2C3D58;"></div>
-      <div class="strip" style="background:#808C95;"></div>
-      <div class="strip" style="background:#232B3E;"></div>
-      <div class="strip" style="background:#E6DFA0;border:1px solid rgba(0,0,0,0.12);"></div>
+  <!-- 00 BRAND COLORS -->
+  <div class="section-label">00 — Brand Palette</div>
+
+  <div class="swatch-grid">
+    <div class="swatch">
+      <div class="swatch-color has-glow" style="background:linear-gradient(160deg,#4FD1F9,#5B9DF9,#A78BFA);">
+        <span class="hex-badge" style="background:rgba(0,0,0,0.4);color:rgba(255,255,255,0.8);">gradient</span>
+      </div>
+      <div class="swatch-info">
+        <div class="swatch-name" style="background:linear-gradient(90deg,#4FD1F9,#A78BFA);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Logo Gradient</div>
+        <div class="swatch-role">Cyan → Blue → Purple</div>
+      </div>
     </div>
-    <div class="source-note">
-      <strong>Six-color system</strong>
-      Arc teal (electric primary) · Slate · Navy<br>
-      Cool grey band · Maroon-black latch · Cream accent
+    <div class="swatch">
+      <div class="swatch-color has-glow" style="background:#4FD1F9;">
+        <span class="hex-badge" style="background:rgba(0,0,0,0.3);color:rgba(255,255,255,0.8);">#4FD1F9</span>
+      </div>
+      <div class="swatch-info">
+        <div class="swatch-name" style="color:#4FD1F9">Wave Cyan</div>
+        <div class="swatch-role">Primary accent · top of wave</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color has-glow" style="background:#5B9DF9;">
+        <span class="hex-badge" style="background:rgba(0,0,0,0.3);color:rgba(255,255,255,0.8);">#5B9DF9</span>
+      </div>
+      <div class="swatch-info">
+        <div class="swatch-name" style="color:#5B9DF9">Wave Blue</div>
+        <div class="swatch-role">Secondary accent · mid wave</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color has-purple-glow" style="background:#A78BFA;">
+        <span class="hex-badge" style="background:rgba(0,0,0,0.3);color:rgba(255,255,255,0.8);">#A78BFA</span>
+      </div>
+      <div class="swatch-info">
+        <div class="swatch-name" style="color:#A78BFA">Wave Purple</div>
+        <div class="swatch-role">Tertiary · AI features</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#FF6B6B;">
+        <span class="hex-badge" style="background:rgba(0,0,0,0.3);color:rgba(255,255,255,0.8);">#FF6B6B</span>
+      </div>
+      <div class="swatch-info">
+        <div class="swatch-name" style="color:#FF6B6B">Coral</div>
+        <div class="swatch-role">Gig marketplace · action</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#F97316;">
+        <span class="hex-badge" style="background:rgba(0,0,0,0.3);color:rgba(255,255,255,0.8);">#F97316</span>
+      </div>
+      <div class="swatch-info">
+        <div class="swatch-name" style="color:#F97316">Orange</div>
+        <div class="swatch-role">Energy · warnings</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#10B981;">
+        <span class="hex-badge" style="background:rgba(0,0,0,0.3);color:rgba(255,255,255,0.8);">#10B981</span>
+      </div>
+      <div class="swatch-info">
+        <div class="swatch-name" style="color:#10B981">Emerald</div>
+        <div class="swatch-role">Distribution · success</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#8B949E;">
+        <span class="hex-badge" style="background:rgba(0,0,0,0.3);color:rgba(255,255,255,0.8);">#8B949E</span>
+      </div>
+      <div class="swatch-info">
+        <div class="swatch-name" style="color:#8B949E">Muted Gray</div>
+        <div class="swatch-role">Body text · captions</div>
+      </div>
     </div>
   </div>
 
-  <!-- FOUNDATIONS -->
-  <div class="section-label">00 — Foundations</div>
+  <!-- 01 FOUNDATIONS -->
+  <div class="section-label">01 — Foundations</div>
   <div class="swatch-grid" id="foundationSwatches"></div>
-
-  <!-- ARC BLUE -->
-  <div class="section-label">01 — Arc (Primary Electric)</div>
-  <div class="swatch-grid">
-    <div class="swatch">
-      <div class="swatch-color has-glow" style="background:#1E9EBE;">
-        <span class="hex-badge">#1E9EBE</span>
-      </div>
-      <div class="swatch-info">
-        <div class="swatch-name" style="color:#28C8E8">Arc</div>
-        <div class="swatch-role">Resting glow · borders</div>
-      </div>
-    </div>
-    <div class="swatch">
-      <div class="swatch-color has-glow" style="background:#28C8E8;">
-        <span class="hex-badge">#28C8E8</span>
-      </div>
-      <div class="swatch-info">
-        <div class="swatch-name" style="color:#5CE0F8">Arc Light</div>
-        <div class="swatch-role">CTAs · links · active</div>
-      </div>
-    </div>
-    <div class="swatch">
-      <div class="swatch-color" style="background:#5CE0F8;">
-        <span class="hex-badge" style="background:rgba(0,0,0,0.3);color:rgba(255,255,255,0.8);">#5CE0F8</span>
-      </div>
-      <div class="swatch-info">
-        <div class="swatch-name" style="color:#5CE0F8">Arc Glow</div>
-        <div class="swatch-role">Hover · tip of arc</div>
-      </div>
-    </div>
-    <div class="swatch">
-      <div class="swatch-color" style="background:#0F6878;">
-        <span class="hex-badge">#0F6878</span>
-      </div>
-      <div class="swatch-info">
-        <div class="swatch-name" style="color:#28C8E8">Arc Deep</div>
-        <div class="swatch-role">Pressed · active bg</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- SLATE + NAVY -->
-  <div class="section-label">02 — Slate & Navy (Secondary)</div>
-  <div class="swatch-grid">
-    <div class="swatch">
-      <div class="swatch-color" style="background:#74808B;">
-        <span class="hex-badge">#74808B</span>
-      </div>
-      <div class="swatch-info">
-        <div class="swatch-name" style="color:#9AAAB5">Slate</div>
-        <div class="swatch-role">Lid · muted elements</div>
-      </div>
-    </div>
-    <div class="swatch">
-      <div class="swatch-color" style="background:#9AAAB5;">
-        <span class="hex-badge" style="background:rgba(0,0,0,0.25);color:rgba(255,255,255,0.7);">#9AAAB5</span>
-      </div>
-      <div class="swatch-info">
-        <div class="swatch-name" style="color:#9AAAB5">Slate Light</div>
-        <div class="swatch-role">Subtle tags · icons</div>
-      </div>
-    </div>
-    <div class="swatch">
-      <div class="swatch-color" style="background:#2C3D58;">
-        <span class="hex-badge">#2C3D58</span>
-      </div>
-      <div class="swatch-info">
-        <div class="swatch-name" style="color:#9AAAB5">Navy</div>
-        <div class="swatch-role">Spout · depth</div>
-      </div>
-    </div>
-    <div class="swatch">
-      <div class="swatch-color" style="background:#3A5070;">
-        <span class="hex-badge">#3A5070</span>
-      </div>
-      <div class="swatch-info">
-        <div class="swatch-name" style="color:#9AAAB5">Navy Light</div>
-        <div class="swatch-role">Navy hover</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- BAND + LATCH + CREAM -->
-  <div class="section-label">03 — Band, Latch & Cream</div>
-  <div class="swatch-grid">
-    <div class="swatch">
-      <div class="swatch-color" style="background:#808C95;">
-        <span class="hex-badge">#808C95</span>
-      </div>
-      <div class="swatch-info">
-        <div class="swatch-name" style="color:#9AAAB5">Band</div>
-        <div class="swatch-role">Cool grey · dividers</div>
-      </div>
-    </div>
-    <div class="swatch">
-      <div class="swatch-color" style="background:#232B3E;">
-        <span class="hex-badge">#232B3E</span>
-      </div>
-      <div class="swatch-info">
-        <div class="swatch-name" style="color:#4A5878">Latch</div>
-        <div class="swatch-role">Maroon-black · icons</div>
-      </div>
-    </div>
-    <div class="swatch">
-      <div class="swatch-color" style="background:#E6DFA0;border-bottom:1px solid rgba(0,0,0,0.08);">
-        <span class="hex-badge" style="background:rgba(0,0,0,0.18);color:rgba(30,28,8,0.8);">#E6DFA0</span>
-      </div>
-      <div class="swatch-info">
-        <div class="swatch-name" style="color:#A09828">Cream</div>
-        <div class="swatch-role">Warm accent · featured</div>
-      </div>
-    </div>
-  </div>
 
   <div class="divider"></div>
 
-  <!-- IN CONTEXT -->
-  <div class="section-label">04 — In Context</div>
-  <div class="type-demo">
-    <div class="type-hero">
-      Where musicians<br>
-      <span>connect</span> — and <em>arc.</em>
-    </div>
-    <p class="type-sub">Find collaborators, share sessions, build something that didn't exist yesterday. The spark between two strangers is where music lives.</p>
-    <div class="type-tag">
-      <div class="live-dot"></div>
-      LIVE NOW · 2,847 SESSIONS
+  <!-- 02 IN CONTEXT -->
+  <div class="section-label">02 — In Context</div>
+  <div class="card type-demo" style="margin-bottom:40px;">
+    <div class="type-hero">Make music.<br><span class="grad">We got the rest.</span></div>
+    <p class="type-caslon">"Everything a label provides. Nothing they take. Your music, your masters, your money."</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
+      <button class="btn btn-gradient">Get Started</button>
+      <button class="btn btn-secondary">Browse Gigs</button>
+      <div class="live-chip"><div class="live-dot"></div>LIVE · 2,847 SESSIONS</div>
     </div>
   </div>
 
-  <div class="demo-card">
-    <button class="btn primary">Connect</button>
-    <button class="btn secondary">Browse</button>
-    <button class="btn navy-btn">Go Live</button>
-    <button class="btn cream-btn">✦ Featured</button>
-    <button class="btn ghost">Settings</button>
-    <span class="demo-label">// UI ELEMENTS</span>
+  <!-- 03 BUTTONS & BADGES -->
+  <div class="section-label">03 — Buttons & Badges</div>
+  <div class="card demo-row">
+    <button class="btn btn-primary">Connect</button>
+    <button class="btn btn-gradient">✦ Featured</button>
+    <button class="btn btn-purple">AI Manager</button>
+    <button class="btn btn-coral">Post Gig</button>
+    <button class="btn btn-emerald">Distribute</button>
+    <button class="btn btn-secondary">Browse</button>
+    <button class="btn btn-ghost">Settings</button>
+    <span class="demo-label">// BUTTONS</span>
   </div>
 
-  <!-- USAGE -->
-  <div class="section-label">05 — Usage Guide</div>
+  <div class="card demo-row" style="margin-bottom:40px;">
+    <span class="badge badge-cyan">● Live</span>
+    <span class="badge badge-purple">AI Agent</span>
+    <span class="badge badge-coral">New Gig</span>
+    <span class="badge badge-emerald">Distributed</span>
+    <span class="badge badge-orange">Trending</span>
+    <span class="badge badge-default">Draft</span>
+    <span class="demo-label">// BADGES</span>
+  </div>
+
+  <!-- 04 PLATFORM SECTIONS -->
+  <div class="section-label">04 — Platform Sections</div>
+  <div class="card" style="margin-bottom:40px;overflow:hidden;">
+    <table class="section-table">
+      <thead>
+        <tr>
+          <th>Section</th>
+          <th>Accent</th>
+          <th>Mood</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="section-name">Bounty Marketplace</div></td>
+          <td><span class="badge badge-cyan">Cyan / Teal</span></td>
+          <td><div class="section-mood">Creative, opportunity</div></td>
+        </tr>
+        <tr>
+          <td><div class="section-name">Gig Marketplace</div></td>
+          <td><span class="badge badge-coral">Coral / Orange</span></td>
+          <td><div class="section-mood">Energy, action</div></td>
+        </tr>
+        <tr>
+          <td><div class="section-name">Band Hub</div></td>
+          <td><span class="badge badge-purple">Purple</span></td>
+          <td><div class="section-mood">Collaboration, premium</div></td>
+        </tr>
+        <tr>
+          <td><div class="section-name">AI Agents</div></td>
+          <td><span class="badge badge-purple" style="background:linear-gradient(90deg,rgba(79,209,249,0.1),rgba(167,139,250,0.1));border-color:rgba(167,139,250,0.3);">Purple → Cyan</span></td>
+          <td><div class="section-mood">Technology, assistance</div></td>
+        </tr>
+        <tr>
+          <td><div class="section-name">Distribution</div></td>
+          <td><span class="badge badge-emerald">Emerald / Green</span></td>
+          <td><div class="section-mood">Growth, success</div></td>
+        </tr>
+        <tr>
+          <td><div class="section-name">Sync Licensing</div></td>
+          <td><span class="badge badge-orange">Warm gradient</span></td>
+          <td><div class="section-mood">Creative, cinematic</div></td>
+        </tr>
+        <tr>
+          <td><div class="section-name">Jury / Disputes</div></td>
+          <td><span class="badge badge-default">Neutral / Gray</span></td>
+          <td><div class="section-mood">Serious, fair</div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 05 COMPONENTS -->
+  <div class="section-label">05 — Components</div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;">
+
+    <!-- Profile card -->
+    <div class="card">
+      <div class="profile-card">
+        <div class="avatar">MV</div>
+        <div class="profile-info">
+          <h4>Maya Delgado</h4>
+          <p>Guitar · Jazz · Buenos Aires</p>
+        </div>
+        <div class="profile-badge"><span class="badge badge-cyan">● Live</span></div>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-label"><span>Track Record</span><span style="color:var(--cyan);">94%</span></div>
+        <div class="progress-track"><div class="progress-fill" style="width:94%;background:linear-gradient(90deg,#4FD1F9,#5B9DF9);"></div></div>
+      </div>
+    </div>
+
+    <!-- Notification feed -->
+    <div class="card" style="overflow:hidden;">
+      <div class="notif">
+        <div class="notif-icon" style="background:rgba(79,209,249,0.1);">🎸</div>
+        <div class="notif-body">
+          <h5>New bounty match</h5>
+          <p>Studio session in Austin — $450</p>
+        </div>
+        <div class="notif-time">2m ago</div>
+      </div>
+      <div class="notif">
+        <div class="notif-icon" style="background:rgba(167,139,250,0.1);">🤖</div>
+        <div class="notif-body">
+          <h5>AI Manager negotiated</h5>
+          <p>Contract revised: +$120 increase</p>
+        </div>
+        <div class="notif-time">1h ago</div>
+      </div>
+      <div class="notif">
+        <div class="notif-icon" style="background:rgba(16,185,129,0.1);">✅</div>
+        <div class="notif-body">
+          <h5>Track distributed</h5>
+          <p>Now live on Spotify &amp; Apple Music</p>
+        </div>
+        <div class="notif-time">3h ago</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gig card + input row -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:40px;">
+    <div class="card gig-card">
+      <div class="gig-header">
+        <div>
+          <div class="gig-venue">The Hole in the Wall</div>
+          <div class="gig-meta">Austin, TX · Fri Mar 14 · 9 PM</div>
+        </div>
+        <div class="gig-pay">$350</div>
+      </div>
+      <div class="gig-tags">
+        <span class="badge badge-coral">Rock</span>
+        <span class="badge badge-default">3-piece</span>
+        <span class="badge badge-default">2hr set</span>
+      </div>
+      <div class="gig-cta">
+        <button class="btn btn-primary" style="flex:1;font-size:12px;padding:7px;">Apply</button>
+        <button class="btn btn-ghost" style="font-size:12px;padding:7px;">Details</button>
+      </div>
+    </div>
+
+    <div class="card" style="padding:20px;display:flex;flex-direction:column;gap:10px;">
+      <div style="font-size:11px;font-family:'DM Mono',monospace;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-ter);margin-bottom:4px;">// FORM ELEMENTS</div>
+      <input class="input" placeholder="Search musicians…" style="width:100%;">
+      <input class="input" placeholder="Jazz guitarist, Buenos Aires" style="width:100%;border-color:var(--cyan);box-shadow:0 0 0 3px rgba(79,209,249,0.12);">
+      <select class="select" style="width:100%;">
+        <option>Genre: All</option>
+        <option>Jazz</option>
+        <option>Rock</option>
+      </select>
+      <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--text-ter);letter-spacing:0.12em;">// FOCUSED STATE ABOVE</div>
+    </div>
+  </div>
+
+  <div class="divider faint"></div>
+
+  <!-- 06 TYPOGRAPHY -->
+  <div class="section-label">06 — Typography</div>
+  <div class="card" style="padding:28px 32px;margin-bottom:40px;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;">
+      <!-- Zalando Sans — all weights -->
+      <div>
+        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.25em;text-transform:uppercase;color:var(--text-ter);margin-bottom:18px;">Zalando Sans — All Weights (UI)</div>
+        <div class="type-specimen">
+          <div class="type-row"><div class="type-meta">900 · Black</div><div class="type-sample ts-900">ARC Platform</div></div>
+          <div class="type-row"><div class="type-meta">800 · ExtraBold</div><div class="type-sample ts-800">ARC Platform</div></div>
+          <div class="type-row"><div class="type-meta">700 · Bold</div><div class="type-sample ts-700">ARC Platform</div></div>
+          <div class="type-row"><div class="type-meta">700i · Bold Italic</div><div class="type-sample ts-700" style="font-style:italic;">ARC Platform</div></div>
+          <div class="type-row"><div class="type-meta">600 · SemiBold</div><div class="type-sample ts-600">ARC Platform</div></div>
+          <div class="type-row"><div class="type-meta">500 · Medium</div><div class="type-sample ts-500">ARC Platform</div></div>
+          <div class="type-row"><div class="type-meta">400 · Regular</div><div class="type-sample ts-400">ARC Platform</div></div>
+          <div class="type-row"><div class="type-meta">400i · Italic</div><div class="type-sample ts-400" style="font-style:italic;">ARC Platform</div></div>
+          <div class="type-row"><div class="type-meta">300 · Light</div><div class="type-sample ts-300">ARC Platform</div></div>
+          <div class="type-row"><div class="type-meta">200 · ExtraLight</div><div class="type-sample ts-200">ARC Platform</div></div>
+          <div class="type-row" style="border:none;"><div class="type-meta">100 · Thin</div><div class="type-sample ts-100">ARC Platform</div></div>
+        </div>
+      </div>
+      <!-- Libre Caslon + Mono -->
+      <div>
+        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.25em;text-transform:uppercase;color:var(--text-ter);margin-bottom:18px;">Libre Caslon Text (editorial) · DM Mono · <span style="color:rgba(79,209,249,0.6);">SemiExpanded → logo only</span></div>
+        <div class="type-specimen">
+          <div class="type-row"><div class="type-meta">Caslon Regular</div><div class="type-sample ts-caslon" style="font-style:normal;">Make music. We got the rest.</div></div>
+          <div class="type-row"><div class="type-meta">Caslon Italic</div><div class="type-sample ts-caslon" style="font-style:italic;">"Your music. Your masters."</div></div>
+          <div class="type-row"><div class="type-meta">Caslon Bold</div><div class="type-sample ts-caslon-b" style="font-style:normal;">Everything a label provides.</div></div>
+          <div class="type-row"><div class="type-meta">Caslon Bold Italic</div><div class="type-sample ts-caslon-b" style="font-style:italic;">Nothing they take.</div></div>
+          <div class="type-row"><div class="type-meta">DM Mono Regular</div><div class="type-sample ts-mono">#4FD1F9 · 0.0rem · 14px</div></div>
+          <div class="type-row"><div class="type-meta">DM Mono Medium</div><div class="type-sample ts-mono" style="font-weight:500;">// LIVE · 2,847 SESSIONS</div></div>
+          <div class="type-row" style="border:none;padding-bottom:0;"><div class="type-meta">Caslon Alphabet</div><div class="type-sample" style="font-size:11px;color:var(--text-sec);font-family:'Libre Caslon Text',serif;line-height:1.9;">AaBbCcDdEeFfGgHhIiJjKk<br>LlMmNnOoPpQqRrSsTtUuVv<br>WwXxYyZz 0123456789</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider faint"></div>
+
+  <!-- 07 LOGO -->
+  <div class="section-label">07 — Logo Usage</div>
+  <div class="logo-grid" id="logoGrid"></div>
+
+  <div class="divider faint"></div>
+
+  <!-- 08 USAGE GUIDE -->
+  <div class="section-label">08 — Usage Guide</div>
   <div class="usage-grid">
-    <div class="usage-card">
-      <h3><div class="usage-dot" style="background:#28C8E8;box-shadow:0 0 8px rgba(40,200,232,0.7);"></div>Arc</h3>
-      <p>Primary actions, live indicators, links. The brightest thing on screen — used with intention, never decoration.</p>
+    <div class="card usage-card">
+      <h3><div class="usage-dot" style="background:#4FD1F9;box-shadow:0 0 8px rgba(79,209,249,0.7);"></div>Wave Cyan</h3>
+      <p>Primary actions, live indicators, links. The top of the sound wave — the brightest and most energetic point.</p>
     </div>
-    <div class="usage-card">
-      <h3><div class="usage-dot" style="background:#2C3D58;"></div>Navy</h3>
-      <p>Secondary actions. Sits below Arc in the hierarchy — the same cold water family, just deeper.</p>
+    <div class="card usage-card">
+      <h3><div class="usage-dot" style="background:#A78BFA;box-shadow:0 0 8px rgba(167,139,250,0.7);"></div>Wave Purple</h3>
+      <p>AI features, Band Hub, premium tiers. The deep end of the wave — thoughtful, intelligent, collaborative.</p>
     </div>
-    <div class="usage-card">
-      <h3><div class="usage-dot" style="background:#74808B;"></div>Slate</h3>
-      <p>Muted tags, secondary icons, anything that supports without competing. The lid, not the arc.</p>
+    <div class="card usage-card">
+      <h3><div class="usage-dot" style="background:#FF6B6B;"></div>Coral</h3>
+      <p>Gig marketplace, urgent CTAs. Energy and action — something that needs to be acted on right now.</p>
     </div>
-    <div class="usage-card">
-      <h3><div class="usage-dot" style="background:#232B3E;"></div>Latch</h3>
-      <p>The maroon-black near-dark. Use for charcoal UI chrome, deep icon fills, the heaviest surface before true black.</p>
+    <div class="card usage-card">
+      <h3><div class="usage-dot" style="background:#10B981;"></div>Emerald</h3>
+      <p>Distribution, earnings, success states. Green = money moving, tracks going live, artists growing.</p>
     </div>
-    <div class="usage-card">
-      <h3><div class="usage-dot" style="background:#808C95;"></div>Band</h3>
-      <p>The cool grey separator. Dividers, placeholders, disabled states — quiet but structural.</p>
+    <div class="card usage-card">
+      <h3><div class="usage-dot" style="background:#5B9DF9;"></div>Wave Blue</h3>
+      <p>Transitions between Cyan and Purple. Info states, secondary links, the mid-point of the gradient.</p>
     </div>
-    <div class="usage-card">
-      <h3><div class="usage-dot" style="background:#E6DFA0;border:1px solid rgba(0,0,0,0.12);"></div>Cream</h3>
-      <p>Warm accent. Featured labels, notification badges, input focus rings. The warmth against the cold arc.</p>
+    <div class="card usage-card">
+      <h3><div class="usage-dot" style="background:#0F1419;border:1px solid #30363D;"></div>Deep Navy</h3>
+      <p>The primary canvas. Everything lives on this — `#0F1419`. Deep enough to let the gradient breathe.</p>
     </div>
-  </div>
-
-  <div class="divider faint"></div>
-
-  <!-- CREAM EXAMPLES -->
-  <div class="section-label">06 — Cream in Use</div>
-  <div class="cream-section">
-
-    <div class="cream-row">
-      <div class="ex-card">
-        <div class="ex-label">Notification Badge</div>
-        <div style="display:flex;align-items:center;gap:14px;">
-          <div style="position:relative;display:inline-block;">
-            <div style="width:44px;height:44px;border-radius:50%;background:var(--surface-3);border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:20px;">🎸</div>
-            <div style="position:absolute;top:-5px;right:-5px;background:var(--cream-ui);color:var(--cream-dark-txt);font-family:'DM Mono',monospace;font-size:9px;font-weight:700;padding:2px 6px;border-radius:99px;">3</div>
-          </div>
-          <div style="position:relative;display:inline-block;">
-            <div style="width:44px;height:44px;border-radius:50%;background:var(--surface-3);border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:20px;">🎹</div>
-            <div style="position:absolute;top:-5px;right:-5px;background:var(--cream-ui);color:var(--cream-dark-txt);font-family:'DM Mono',monospace;font-size:9px;font-weight:700;padding:2px 6px;border-radius:99px;">12</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="ex-card">
-        <div class="ex-label">Featured Tags</div>
-        <div style="display:flex;gap:8px;flex-wrap:wrap;">
-          <span class="cream-tag">✦ Featured</span>
-          <span class="cream-tag">Top Match</span>
-          <span class="cream-tag">New Collab</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="cream-row">
-      <div class="ex-card" style="flex:2;">
-        <div class="ex-label">Text Highlight</div>
-        <p style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;line-height:1.5;color:var(--text-pri);">
-          The best sessions happen when
-          <mark style="background:var(--cream-ui-bg);color:var(--cream-text);outline:1px solid var(--cream-ui-bdr);padding:1px 5px;border-radius:3px;">two strangers</mark>
-          find the
-          <mark style="background:var(--cream-ui-bg);color:var(--cream-text);outline:1px solid var(--cream-ui-bdr);padding:1px 5px;border-radius:3px;">same key.</mark>
-        </p>
-      </div>
-    </div>
-
-    <div class="cream-row">
-      <div class="ex-card">
-        <div class="ex-label">Profile Card Accent</div>
-        <div style="background:var(--surface-2);border-radius:10px;overflow:hidden;border:1px solid var(--swatch-border);width:100%;">
-          <div style="height:3px;background:var(--cream-ui);"></div>
-          <div style="padding:16px;">
-            <div style="font-weight:600;font-size:14px;color:var(--text-pri);margin-bottom:3px;">Maya Delgado</div>
-            <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text-sec);opacity:0.6;margin-bottom:10px;">Guitar · Jazz · Buenos Aires</div>
-            <div style="display:flex;gap:6px;flex-wrap:wrap;">
-              <span class="cream-tag" style="font-size:9px;">Jazz</span>
-              <span class="cream-tag" style="font-size:9px;">Bossa Nova</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="ex-card">
-        <div class="ex-label">Input Focus Ring</div>
-        <div style="display:flex;flex-direction:column;gap:10px;width:100%;">
-          <div style="background:var(--surface-3);border:1px solid var(--border);border-radius:7px;padding:10px 14px;font-size:13px;color:var(--text-sec);">Search musicians…</div>
-          <div style="background:var(--surface-3);border:2px solid var(--cream-ui);border-radius:7px;padding:10px 14px;font-size:13px;color:var(--text-pri);box-shadow:0 0 0 3px var(--cream-ui-bg);">Jazz guitarist, Buenos Aires</div>
-          <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--text-sec);opacity:0.4;letter-spacing:0.12em;">// FOCUSED STATE</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Session card -->
-    <div class="cream-row">
-      <div class="ex-card" style="flex:1;">
-        <div class="ex-label">Live Session Card</div>
-        <div style="background:var(--surface-2);border-radius:10px;border:1px solid var(--swatch-border);padding:18px;width:100%;">
-          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
-            <div style="font-weight:600;font-size:14px;color:var(--text-pri);">Late Night Improv</div>
-            <div style="display:flex;align-items:center;gap:5px;">
-              <div class="live-dot"></div>
-              <span style="font-family:'DM Mono',monospace;font-size:9px;color:var(--arc-glow);letter-spacing:0.12em;">LIVE</span>
-            </div>
-          </div>
-          <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text-sec);opacity:0.6;margin-bottom:14px;">Jazz · Piano · Bass · 3 players</div>
-          <!-- arc gradient bar with cream tip -->
-          <div style="height:2px;border-radius:2px;margin-bottom:14px;background:linear-gradient(90deg,var(--navy),var(--arc),var(--arc-glow),var(--cream-ui));opacity:0.65;"></div>
-          <button class="btn primary" style="width:100%;font-size:12px;padding:9px;">Join Session</button>
-        </div>
-      </div>
-
-      <div class="ex-card" style="flex:1;">
-        <div class="ex-label">Cream CTA + Divider</div>
-        <div style="display:flex;flex-direction:column;gap:11px;width:100%;">
-          <button class="btn cream-btn" style="width:100%;">✦ Featured Artist</button>
-          <div style="display:flex;align-items:center;gap:10px;">
-            <div style="flex:1;height:1px;background:var(--cream-ui);opacity:0.28;"></div>
-            <span style="font-family:'DM Mono',monospace;font-size:9px;color:var(--cream-text);letter-spacing:0.2em;opacity:0.75;">OR</span>
-            <div style="flex:1;height:1px;background:var(--cream-ui);opacity:0.28;"></div>
-          </div>
-          <button class="btn secondary" style="width:100%;">Browse All</button>
-        </div>
-      </div>
-    </div>
-
-  <div class="divider faint"></div>
-
-  <!-- TYPEFACE -->
-  <div class="section-label">07 — Typeface</div>
-  <div class="typeface-card">
-    <div class="typeface-name">Zalando Sans SemiExpanded</div>
-    <div class="typeface-display">Aa <span>Arc</span></div>
-    <div class="typeface-alphabet">
-      abcdefghijklmnopqrstuvwxyz<br>
-      ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
-      0123456789 !@#$%^&*
-    </div>
-  </div>
-
-  <div class="divider faint"></div>
-
-  <!-- LOGO USAGE -->
-  <div class="section-label">08 — Logo Usage</div>
-  <div class="logo-grid">
-
-    <div class="logo-tile">
-      <div class="logo-tile-bg" style="background:var(--surface-2);">
-        <svg xmlns="http://www.w3.org/2000/svg" width="160" height="67" viewBox="0 0 470.516 196.246"><g transform="translate(-14862.321 -9506.995)">
-          <path d="M41.385,2.1q-10.823,0-17.957-3.65a24.54,24.54,0,0,1-10.6-9.846,27.293,27.293,0,0,1-3.47-13.565A25.241,25.241,0,0,1,13.433-39.2q4.078-6.173,12.413-9.693t20.94-3.521H68.162a35.013,35.013,0,0,0-1.44-10.961,11.469,11.469,0,0,0-4.959-6.416q-3.519-2.133-9.814-2.133a19.632,19.632,0,0,0-10.594,2.655,11.664,11.664,0,0,0-5.306,8.042H12.327a31.443,31.443,0,0,1,6.111-16.146A34.009,34.009,0,0,1,32.3-87.995a48.994,48.994,0,0,1,19.759-3.793q12.622,0,21.737,4.125A30.914,30.914,0,0,1,87.788-75.631q4.874,7.906,4.874,19.4V0H72.1L69.314-13.305a28.82,28.82,0,0,1-4.545,6.223A29.236,29.236,0,0,1,58.615-2.2,29.517,29.517,0,0,1,50.847.982,37.616,37.616,0,0,1,41.385,2.1Zm5.945-18.845a18.069,18.069,0,0,0,7.64-1.572,18.065,18.065,0,0,0,5.953-4.4,23.1,23.1,0,0,0,4.1-6.558,31.135,31.135,0,0,0,2.129-8.019v-.372H49.607a21.433,21.433,0,0,0-8.153,1.329,9.835,9.835,0,0,0-4.713,3.7,10.026,10.026,0,0,0-1.512,5.507,10.094,10.094,0,0,0,1.524,5.683,9.525,9.525,0,0,0,4.26,3.5A15.667,15.667,0,0,0,47.329-16.745ZM107.969,0V-89.687h21.746l2.256,16.051a36.771,36.771,0,0,1,8.369-9.83,35.456,35.456,0,0,1,11.412-6.173,45.2,45.2,0,0,1,14.276-2.148v25.875H155.764a36.146,36.146,0,0,0-9.237,1.127,19.08,19.08,0,0,0-7.443,3.761,16.874,16.874,0,0,0-4.892,7.172,32.189,32.189,0,0,0-1.723,11.333V0ZM214.834,2.1a46.287,46.287,0,0,1-23.712-5.992,42.515,42.515,0,0,1-16.1-16.477,48.4,48.4,0,0,1-5.8-23.826q0-14.071,5.8-24.767a42.642,42.642,0,0,1,16.1-16.76,45.886,45.886,0,0,1,23.729-6.065q17.153,0,28.785,9.03T258.5-57.725H232.525a16.588,16.588,0,0,0-6.341-9.624,18.964,18.964,0,0,0-11.525-3.5,18.839,18.839,0,0,0-10.835,3.136,20.075,20.075,0,0,0-7.131,8.961,35.065,35.065,0,0,0-2.506,13.913,38.257,38.257,0,0,0,1.43,10.853,24.063,24.063,0,0,0,4.114,8.226,18.1,18.1,0,0,0,6.47,5.188,19.434,19.434,0,0,0,8.459,1.8,20.448,20.448,0,0,0,8.148-1.544,16.771,16.771,0,0,0,6.154-4.517,16.723,16.723,0,0,0,3.564-7.127H258.5Q255.3-16.39,243.591-7.145T214.834,2.1Z" transform="translate(15074.335 9685.142)" fill="var(--arc-light)"/>
-          <path d="M186.1,196.245h0l-49.979,0q-.156,0-.314,0A11.1,11.1,0,0,1,124.645,185.2q0-.44.034-.872l.378-49.933L81.181,192.375l-.054.026A11.178,11.178,0,0,1,73,196.241l-.006,0h-.117l-.211,0-.214,0-60.823-.008q-.233.01-.469.01A11.1,11.1,0,0,1,0,185.2a10.918,10.918,0,0,1,1.951-6.241v0l.033-.045q.188-.269.392-.525L70.627,86.855h54.43V134.4l54.707-70.168H124.373v-.016h-.127V10.837l.136-.133A11.1,11.1,0,0,1,135.206.114L135.323,0H186.4l.114.114a11.045,11.045,0,0,1,10.723,12.763V38.028c.051.824.076,1.656.076,2.492s-.025,1.657-.075,2.475l.134,142.058h0q0,.073,0,.146a11.1,11.1,0,0,1-11.158,11.046Z" transform="translate(14862.321 9506.995)" fill="var(--arc-light)"/>
-        </g></svg>
-      </div>
-      <div class="logo-tile-label">Primary Color</div>
-    </div>
-
-    <div class="logo-tile">
-      <div class="logo-tile-bg" style="background:var(--surface-2);">
-        <svg xmlns="http://www.w3.org/2000/svg" width="160" height="67" viewBox="0 0 470.516 196.246"><g transform="translate(-14862.321 -9506.995)">
-          <path d="M41.385,2.1q-10.823,0-17.957-3.65a24.54,24.54,0,0,1-10.6-9.846,27.293,27.293,0,0,1-3.47-13.565A25.241,25.241,0,0,1,13.433-39.2q4.078-6.173,12.413-9.693t20.94-3.521H68.162a35.013,35.013,0,0,0-1.44-10.961,11.469,11.469,0,0,0-4.959-6.416q-3.519-2.133-9.814-2.133a19.632,19.632,0,0,0-10.594,2.655,11.664,11.664,0,0,0-5.306,8.042H12.327a31.443,31.443,0,0,1,6.111-16.146A34.009,34.009,0,0,1,32.3-87.995a48.994,48.994,0,0,1,19.759-3.793q12.622,0,21.737,4.125A30.914,30.914,0,0,1,87.788-75.631q4.874,7.906,4.874,19.4V0H72.1L69.314-13.305a28.82,28.82,0,0,1-4.545,6.223A29.236,29.236,0,0,1,58.615-2.2,29.517,29.517,0,0,1,50.847.982,37.616,37.616,0,0,1,41.385,2.1Zm5.945-18.845a18.069,18.069,0,0,0,7.64-1.572,18.065,18.065,0,0,0,5.953-4.4,23.1,23.1,0,0,0,4.1-6.558,31.135,31.135,0,0,0,2.129-8.019v-.372H49.607a21.433,21.433,0,0,0-8.153,1.329,9.835,9.835,0,0,0-4.713,3.7,10.026,10.026,0,0,0-1.512,5.507,10.094,10.094,0,0,0,1.524,5.683,9.525,9.525,0,0,0,4.26,3.5A15.667,15.667,0,0,0,47.329-16.745ZM107.969,0V-89.687h21.746l2.256,16.051a36.771,36.771,0,0,1,8.369-9.83,35.456,35.456,0,0,1,11.412-6.173,45.2,45.2,0,0,1,14.276-2.148v25.875H155.764a36.146,36.146,0,0,0-9.237,1.127,19.08,19.08,0,0,0-7.443,3.761,16.874,16.874,0,0,0-4.892,7.172,32.189,32.189,0,0,0-1.723,11.333V0ZM214.834,2.1a46.287,46.287,0,0,1-23.712-5.992,42.515,42.515,0,0,1-16.1-16.477,48.4,48.4,0,0,1-5.8-23.826q0-14.071,5.8-24.767a42.642,42.642,0,0,1,16.1-16.76,45.886,45.886,0,0,1,23.729-6.065q17.153,0,28.785,9.03T258.5-57.725H232.525a16.588,16.588,0,0,0-6.341-9.624,18.964,18.964,0,0,0-11.525-3.5,18.839,18.839,0,0,0-10.835,3.136,20.075,20.075,0,0,0-7.131,8.961,35.065,35.065,0,0,0-2.506,13.913,38.257,38.257,0,0,0,1.43,10.853,24.063,24.063,0,0,0,4.114,8.226,18.1,18.1,0,0,0,6.47,5.188,19.434,19.434,0,0,0,8.459,1.8,20.448,20.448,0,0,0,8.148-1.544,16.771,16.771,0,0,0,6.154-4.517,16.723,16.723,0,0,0,3.564-7.127H258.5Q255.3-16.39,243.591-7.145T214.834,2.1Z" transform="translate(15074.335 9685.142)" fill="#6888A0"/>
-          <path d="M186.1,196.245h0l-49.979,0q-.156,0-.314,0A11.1,11.1,0,0,1,124.645,185.2q0-.44.034-.872l.378-49.933L81.181,192.375l-.054.026A11.178,11.178,0,0,1,73,196.241l-.006,0h-.117l-.211,0-.214,0-60.823-.008q-.233.01-.469.01A11.1,11.1,0,0,1,0,185.2a10.918,10.918,0,0,1,1.951-6.241v0l.033-.045q.188-.269.392-.525L70.627,86.855h54.43V134.4l54.707-70.168H124.373v-.016h-.127V10.837l.136-.133A11.1,11.1,0,0,1,135.206.114L135.323,0H186.4l.114.114a11.045,11.045,0,0,1,10.723,12.763V38.028c.051.824.076,1.656.076,2.492s-.025,1.657-.075,2.475l.134,142.058h0q0,.073,0,.146a11.1,11.1,0,0,1-11.158,11.046Z" transform="translate(14862.321 9506.995)" fill="#6888A0"/>
-        </g></svg>
-      </div>
-      <div class="logo-tile-label">Secondary Color</div>
-    </div>
-
-    <div class="logo-tile">
-      <div class="logo-tile-bg" style="background:var(--surface-2);">
-        <svg xmlns="http://www.w3.org/2000/svg" width="160" height="67" viewBox="0 0 470.516 196.246"><g transform="translate(-14862.321 -9506.995)">
-          <path d="M41.385,2.1q-10.823,0-17.957-3.65a24.54,24.54,0,0,1-10.6-9.846,27.293,27.293,0,0,1-3.47-13.565A25.241,25.241,0,0,1,13.433-39.2q4.078-6.173,12.413-9.693t20.94-3.521H68.162a35.013,35.013,0,0,0-1.44-10.961,11.469,11.469,0,0,0-4.959-6.416q-3.519-2.133-9.814-2.133a19.632,19.632,0,0,0-10.594,2.655,11.664,11.664,0,0,0-5.306,8.042H12.327a31.443,31.443,0,0,1,6.111-16.146A34.009,34.009,0,0,1,32.3-87.995a48.994,48.994,0,0,1,19.759-3.793q12.622,0,21.737,4.125A30.914,30.914,0,0,1,87.788-75.631q4.874,7.906,4.874,19.4V0H72.1L69.314-13.305a28.82,28.82,0,0,1-4.545,6.223A29.236,29.236,0,0,1,58.615-2.2,29.517,29.517,0,0,1,50.847.982,37.616,37.616,0,0,1,41.385,2.1Zm5.945-18.845a18.069,18.069,0,0,0,7.64-1.572,18.065,18.065,0,0,0,5.953-4.4,23.1,23.1,0,0,0,4.1-6.558,31.135,31.135,0,0,0,2.129-8.019v-.372H49.607a21.433,21.433,0,0,0-8.153,1.329,9.835,9.835,0,0,0-4.713,3.7,10.026,10.026,0,0,0-1.512,5.507,10.094,10.094,0,0,0,1.524,5.683,9.525,9.525,0,0,0,4.26,3.5A15.667,15.667,0,0,0,47.329-16.745ZM107.969,0V-89.687h21.746l2.256,16.051a36.771,36.771,0,0,1,8.369-9.83,35.456,35.456,0,0,1,11.412-6.173,45.2,45.2,0,0,1,14.276-2.148v25.875H155.764a36.146,36.146,0,0,0-9.237,1.127,19.08,19.08,0,0,0-7.443,3.761,16.874,16.874,0,0,0-4.892,7.172,32.189,32.189,0,0,0-1.723,11.333V0ZM214.834,2.1a46.287,46.287,0,0,1-23.712-5.992,42.515,42.515,0,0,1-16.1-16.477,48.4,48.4,0,0,1-5.8-23.826q0-14.071,5.8-24.767a42.642,42.642,0,0,1,16.1-16.76,45.886,45.886,0,0,1,23.729-6.065q17.153,0,28.785,9.03T258.5-57.725H232.525a16.588,16.588,0,0,0-6.341-9.624,18.964,18.964,0,0,0-11.525-3.5,18.839,18.839,0,0,0-10.835,3.136,20.075,20.075,0,0,0-7.131,8.961,35.065,35.065,0,0,0-2.506,13.913,38.257,38.257,0,0,0,1.43,10.853,24.063,24.063,0,0,0,4.114,8.226,18.1,18.1,0,0,0,6.47,5.188,19.434,19.434,0,0,0,8.459,1.8,20.448,20.448,0,0,0,8.148-1.544,16.771,16.771,0,0,0,6.154-4.517,16.723,16.723,0,0,0,3.564-7.127H258.5Q255.3-16.39,243.591-7.145T214.834,2.1Z" transform="translate(15074.335 9685.142)" fill="rgba(255,255,255,0.9)"/>
-          <path d="M186.1,196.245h0l-49.979,0q-.156,0-.314,0A11.1,11.1,0,0,1,124.645,185.2q0-.44.034-.872l.378-49.933L81.181,192.375l-.054.026A11.178,11.178,0,0,1,73,196.241l-.006,0h-.117l-.211,0-.214,0-60.823-.008q-.233.01-.469.01A11.1,11.1,0,0,1,0,185.2a10.918,10.918,0,0,1,1.951-6.241v0l.033-.045q.188-.269.392-.525L70.627,86.855h54.43V134.4l54.707-70.168H124.373v-.016h-.127V10.837l.136-.133A11.1,11.1,0,0,1,135.206.114L135.323,0H186.4l.114.114a11.045,11.045,0,0,1,10.723,12.763V38.028c.051.824.076,1.656.076,2.492s-.025,1.657-.075,2.475l.134,142.058h0q0,.073,0,.146a11.1,11.1,0,0,1-11.158,11.046Z" transform="translate(14862.321 9506.995)" fill="rgba(255,255,255,0.9)"/>
-        </g></svg>
-      </div>
-      <div class="logo-tile-label">Alternate (Light)</div>
-    </div>
-
-    <div class="logo-tile">
-      <div class="logo-tile-bg" style="background:#FFFFFF; border-bottom:1px solid var(--swatch-border);">
-        <svg xmlns="http://www.w3.org/2000/svg" width="160" height="67" viewBox="0 0 470.516 196.246"><g transform="translate(-14862.321 -9506.995)">
-          <path d="M41.385,2.1q-10.823,0-17.957-3.65a24.54,24.54,0,0,1-10.6-9.846,27.293,27.293,0,0,1-3.47-13.565A25.241,25.241,0,0,1,13.433-39.2q4.078-6.173,12.413-9.693t20.94-3.521H68.162a35.013,35.013,0,0,0-1.44-10.961,11.469,11.469,0,0,0-4.959-6.416q-3.519-2.133-9.814-2.133a19.632,19.632,0,0,0-10.594,2.655,11.664,11.664,0,0,0-5.306,8.042H12.327a31.443,31.443,0,0,1,6.111-16.146A34.009,34.009,0,0,1,32.3-87.995a48.994,48.994,0,0,1,19.759-3.793q12.622,0,21.737,4.125A30.914,30.914,0,0,1,87.788-75.631q4.874,7.906,4.874,19.4V0H72.1L69.314-13.305a28.82,28.82,0,0,1-4.545,6.223A29.236,29.236,0,0,1,58.615-2.2,29.517,29.517,0,0,1,50.847.982,37.616,37.616,0,0,1,41.385,2.1Zm5.945-18.845a18.069,18.069,0,0,0,7.64-1.572,18.065,18.065,0,0,0,5.953-4.4,23.1,23.1,0,0,0,4.1-6.558,31.135,31.135,0,0,0,2.129-8.019v-.372H49.607a21.433,21.433,0,0,0-8.153,1.329,9.835,9.835,0,0,0-4.713,3.7,10.026,10.026,0,0,0-1.512,5.507,10.094,10.094,0,0,0,1.524,5.683,9.525,9.525,0,0,0,4.26,3.5A15.667,15.667,0,0,0,47.329-16.745ZM107.969,0V-89.687h21.746l2.256,16.051a36.771,36.771,0,0,1,8.369-9.83,35.456,35.456,0,0,1,11.412-6.173,45.2,45.2,0,0,1,14.276-2.148v25.875H155.764a36.146,36.146,0,0,0-9.237,1.127,19.08,19.08,0,0,0-7.443,3.761,16.874,16.874,0,0,0-4.892,7.172,32.189,32.189,0,0,0-1.723,11.333V0ZM214.834,2.1a46.287,46.287,0,0,1-23.712-5.992,42.515,42.515,0,0,1-16.1-16.477,48.4,48.4,0,0,1-5.8-23.826q0-14.071,5.8-24.767a42.642,42.642,0,0,1,16.1-16.76,45.886,45.886,0,0,1,23.729-6.065q17.153,0,28.785,9.03T258.5-57.725H232.525a16.588,16.588,0,0,0-6.341-9.624,18.964,18.964,0,0,0-11.525-3.5,18.839,18.839,0,0,0-10.835,3.136,20.075,20.075,0,0,0-7.131,8.961,35.065,35.065,0,0,0-2.506,13.913,38.257,38.257,0,0,0,1.43,10.853,24.063,24.063,0,0,0,4.114,8.226,18.1,18.1,0,0,0,6.47,5.188,19.434,19.434,0,0,0,8.459,1.8,20.448,20.448,0,0,0,8.148-1.544,16.771,16.771,0,0,0,6.154-4.517,16.723,16.723,0,0,0,3.564-7.127H258.5Q255.3-16.39,243.591-7.145T214.834,2.1Z" transform="translate(15074.335 9685.142)" fill="#1E9EBE"/>
-          <path d="M186.1,196.245h0l-49.979,0q-.156,0-.314,0A11.1,11.1,0,0,1,124.645,185.2q0-.44.034-.872l.378-49.933L81.181,192.375l-.054.026A11.178,11.178,0,0,1,73,196.241l-.006,0h-.117l-.211,0-.214,0-60.823-.008q-.233.01-.469.01A11.1,11.1,0,0,1,0,185.2a10.918,10.918,0,0,1,1.951-6.241v0l.033-.045q.188-.269.392-.525L70.627,86.855h54.43V134.4l54.707-70.168H124.373v-.016h-.127V10.837l.136-.133A11.1,11.1,0,0,1,135.206.114L135.323,0H186.4l.114.114a11.045,11.045,0,0,1,10.723,12.763V38.028c.051.824.076,1.656.076,2.492s-.025,1.657-.075,2.475l.134,142.058h0q0,.073,0,.146a11.1,11.1,0,0,1-11.158,11.046Z" transform="translate(14862.321 9506.995)" fill="#1E9EBE"/>
-        </g></svg>
-      </div>
-      <div class="logo-tile-label">On White</div>
-    </div>
-
-    <div class="logo-tile">
-      <div class="logo-tile-bg" style="background:#FFFFFF; border-bottom:1px solid var(--swatch-border);">
-        <svg xmlns="http://www.w3.org/2000/svg" width="160" height="67" viewBox="0 0 470.516 196.246"><g transform="translate(-14862.321 -9506.995)">
-          <path d="M41.385,2.1q-10.823,0-17.957-3.65a24.54,24.54,0,0,1-10.6-9.846,27.293,27.293,0,0,1-3.47-13.565A25.241,25.241,0,0,1,13.433-39.2q4.078-6.173,12.413-9.693t20.94-3.521H68.162a35.013,35.013,0,0,0-1.44-10.961,11.469,11.469,0,0,0-4.959-6.416q-3.519-2.133-9.814-2.133a19.632,19.632,0,0,0-10.594,2.655,11.664,11.664,0,0,0-5.306,8.042H12.327a31.443,31.443,0,0,1,6.111-16.146A34.009,34.009,0,0,1,32.3-87.995a48.994,48.994,0,0,1,19.759-3.793q12.622,0,21.737,4.125A30.914,30.914,0,0,1,87.788-75.631q4.874,7.906,4.874,19.4V0H72.1L69.314-13.305a28.82,28.82,0,0,1-4.545,6.223A29.236,29.236,0,0,1,58.615-2.2,29.517,29.517,0,0,1,50.847.982,37.616,37.616,0,0,1,41.385,2.1Zm5.945-18.845a18.069,18.069,0,0,0,7.64-1.572,18.065,18.065,0,0,0,5.953-4.4,23.1,23.1,0,0,0,4.1-6.558,31.135,31.135,0,0,0,2.129-8.019v-.372H49.607a21.433,21.433,0,0,0-8.153,1.329,9.835,9.835,0,0,0-4.713,3.7,10.026,10.026,0,0,0-1.512,5.507,10.094,10.094,0,0,0,1.524,5.683,9.525,9.525,0,0,0,4.26,3.5A15.667,15.667,0,0,0,47.329-16.745ZM107.969,0V-89.687h21.746l2.256,16.051a36.771,36.771,0,0,1,8.369-9.83,35.456,35.456,0,0,1,11.412-6.173,45.2,45.2,0,0,1,14.276-2.148v25.875H155.764a36.146,36.146,0,0,0-9.237,1.127,19.08,19.08,0,0,0-7.443,3.761,16.874,16.874,0,0,0-4.892,7.172,32.189,32.189,0,0,0-1.723,11.333V0ZM214.834,2.1a46.287,46.287,0,0,1-23.712-5.992,42.515,42.515,0,0,1-16.1-16.477,48.4,48.4,0,0,1-5.8-23.826q0-14.071,5.8-24.767a42.642,42.642,0,0,1,16.1-16.76,45.886,45.886,0,0,1,23.729-6.065q17.153,0,28.785,9.03T258.5-57.725H232.525a16.588,16.588,0,0,0-6.341-9.624,18.964,18.964,0,0,0-11.525-3.5,18.839,18.839,0,0,0-10.835,3.136,20.075,20.075,0,0,0-7.131,8.961,35.065,35.065,0,0,0-2.506,13.913,38.257,38.257,0,0,0,1.43,10.853,24.063,24.063,0,0,0,4.114,8.226,18.1,18.1,0,0,0,6.47,5.188,19.434,19.434,0,0,0,8.459,1.8,20.448,20.448,0,0,0,8.148-1.544,16.771,16.771,0,0,0,6.154-4.517,16.723,16.723,0,0,0,3.564-7.127H258.5Q255.3-16.39,243.591-7.145T214.834,2.1Z" transform="translate(15074.335 9685.142)" fill="#18232C"/>
-          <path d="M186.1,196.245h0l-49.979,0q-.156,0-.314,0A11.1,11.1,0,0,1,124.645,185.2q0-.44.034-.872l.378-49.933L81.181,192.375l-.054.026A11.178,11.178,0,0,1,73,196.241l-.006,0h-.117l-.211,0-.214,0-60.823-.008q-.233.01-.469.01A11.1,11.1,0,0,1,0,185.2a10.918,10.918,0,0,1,1.951-6.241v0l.033-.045q.188-.269.392-.525L70.627,86.855h54.43V134.4l54.707-70.168H124.373v-.016h-.127V10.837l.136-.133A11.1,11.1,0,0,1,135.206.114L135.323,0H186.4l.114.114a11.045,11.045,0,0,1,10.723,12.763V38.028c.051.824.076,1.656.076,2.492s-.025,1.657-.075,2.475l.134,142.058h0q0,.073,0,.146a11.1,11.1,0,0,1-11.158,11.046Z" transform="translate(14862.321 9506.995)" fill="#18232C"/>
-        </g></svg>
-      </div>
-      <div class="logo-tile-label">Mono Dark</div>
-    </div>
-
-    <div class="logo-tile">
-      <div class="logo-tile-bg" style="background:#18232C;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="160" height="67" viewBox="0 0 470.516 196.246"><g transform="translate(-14862.321 -9506.995)">
-          <path d="M41.385,2.1q-10.823,0-17.957-3.65a24.54,24.54,0,0,1-10.6-9.846,27.293,27.293,0,0,1-3.47-13.565A25.241,25.241,0,0,1,13.433-39.2q4.078-6.173,12.413-9.693t20.94-3.521H68.162a35.013,35.013,0,0,0-1.44-10.961,11.469,11.469,0,0,0-4.959-6.416q-3.519-2.133-9.814-2.133a19.632,19.632,0,0,0-10.594,2.655,11.664,11.664,0,0,0-5.306,8.042H12.327a31.443,31.443,0,0,1,6.111-16.146A34.009,34.009,0,0,1,32.3-87.995a48.994,48.994,0,0,1,19.759-3.793q12.622,0,21.737,4.125A30.914,30.914,0,0,1,87.788-75.631q4.874,7.906,4.874,19.4V0H72.1L69.314-13.305a28.82,28.82,0,0,1-4.545,6.223A29.236,29.236,0,0,1,58.615-2.2,29.517,29.517,0,0,1,50.847.982,37.616,37.616,0,0,1,41.385,2.1Zm5.945-18.845a18.069,18.069,0,0,0,7.64-1.572,18.065,18.065,0,0,0,5.953-4.4,23.1,23.1,0,0,0,4.1-6.558,31.135,31.135,0,0,0,2.129-8.019v-.372H49.607a21.433,21.433,0,0,0-8.153,1.329,9.835,9.835,0,0,0-4.713,3.7,10.026,10.026,0,0,0-1.512,5.507,10.094,10.094,0,0,0,1.524,5.683,9.525,9.525,0,0,0,4.26,3.5A15.667,15.667,0,0,0,47.329-16.745ZM107.969,0V-89.687h21.746l2.256,16.051a36.771,36.771,0,0,1,8.369-9.83,35.456,35.456,0,0,1,11.412-6.173,45.2,45.2,0,0,1,14.276-2.148v25.875H155.764a36.146,36.146,0,0,0-9.237,1.127,19.08,19.08,0,0,0-7.443,3.761,16.874,16.874,0,0,0-4.892,7.172,32.189,32.189,0,0,0-1.723,11.333V0ZM214.834,2.1a46.287,46.287,0,0,1-23.712-5.992,42.515,42.515,0,0,1-16.1-16.477,48.4,48.4,0,0,1-5.8-23.826q0-14.071,5.8-24.767a42.642,42.642,0,0,1,16.1-16.76,45.886,45.886,0,0,1,23.729-6.065q17.153,0,28.785,9.03T258.5-57.725H232.525a16.588,16.588,0,0,0-6.341-9.624,18.964,18.964,0,0,0-11.525-3.5,18.839,18.839,0,0,0-10.835,3.136,20.075,20.075,0,0,0-7.131,8.961,35.065,35.065,0,0,0-2.506,13.913,38.257,38.257,0,0,0,1.43,10.853,24.063,24.063,0,0,0,4.114,8.226,18.1,18.1,0,0,0,6.47,5.188,19.434,19.434,0,0,0,8.459,1.8,20.448,20.448,0,0,0,8.148-1.544,16.771,16.771,0,0,0,6.154-4.517,16.723,16.723,0,0,0,3.564-7.127H258.5Q255.3-16.39,243.591-7.145T214.834,2.1Z" transform="translate(15074.335 9685.142)" fill="rgba(255,255,255,0.95)"/>
-          <path d="M186.1,196.245h0l-49.979,0q-.156,0-.314,0A11.1,11.1,0,0,1,124.645,185.2q0-.44.034-.872l.378-49.933L81.181,192.375l-.054.026A11.178,11.178,0,0,1,73,196.241l-.006,0h-.117l-.211,0-.214,0-60.823-.008q-.233.01-.469.01A11.1,11.1,0,0,1,0,185.2a10.918,10.918,0,0,1,1.951-6.241v0l.033-.045q.188-.269.392-.525L70.627,86.855h54.43V134.4l54.707-70.168H124.373v-.016h-.127V10.837l.136-.133A11.1,11.1,0,0,1,135.206.114L135.323,0H186.4l.114.114a11.045,11.045,0,0,1,10.723,12.763V38.028c.051.824.076,1.656.076,2.492s-.025,1.657-.075,2.475l.134,142.058h0q0,.073,0,.146a11.1,11.1,0,0,1-11.158,11.046Z" transform="translate(14862.321 9506.995)" fill="rgba(255,255,255,0.95)"/>
-        </g></svg>
-      </div>
-      <div class="logo-tile-label">Mono Light</div>
-    </div>
-
   </div>
 
 </div>
 
 <script>
+  // ── SVG PATHS ──
+  const P1 = `M41.385,2.1q-10.823,0-17.957-3.65a24.54,24.54,0,0,1-10.6-9.846,27.293,27.293,0,0,1-3.47-13.565A25.241,25.241,0,0,1,13.433-39.2q4.078-6.173,12.413-9.693t20.94-3.521H68.162a35.013,35.013,0,0,0-1.44-10.961,11.469,11.469,0,0,0-4.959-6.416q-3.519-2.133-9.814-2.133a19.632,19.632,0,0,0-10.594,2.655,11.664,11.664,0,0,0-5.306,8.042H12.327a31.443,31.443,0,0,1,6.111-16.146A34.009,34.009,0,0,1,32.3-87.995a48.994,48.994,0,0,1,19.759-3.793q12.622,0,21.737,4.125A30.914,30.914,0,0,1,87.788-75.631q4.874,7.906,4.874,19.4V0H72.1L69.314-13.305a28.82,28.82,0,0,1-4.545,6.223A29.236,29.236,0,0,1,58.615-2.2,29.517,29.517,0,0,1,50.847.982,37.616,37.616,0,0,1,41.385,2.1Zm5.945-18.845a18.069,18.069,0,0,0,7.64-1.572,18.065,18.065,0,0,0,5.953-4.4,23.1,23.1,0,0,0,4.1-6.558,31.135,31.135,0,0,0,2.129-8.019v-.372H49.607a21.433,21.433,0,0,0-8.153,1.329,9.835,9.835,0,0,0-4.713,3.7,10.026,10.026,0,0,0-1.512,5.507,10.094,10.094,0,0,0,1.524,5.683,9.525,9.525,0,0,0,4.26,3.5A15.667,15.667,0,0,0,47.329-16.745ZM107.969,0V-89.687h21.746l2.256,16.051a36.771,36.771,0,0,1,8.369-9.83,35.456,35.456,0,0,1,11.412-6.173,45.2,45.2,0,0,1,14.276-2.148v25.875H155.764a36.146,36.146,0,0,0-9.237,1.127,19.08,19.08,0,0,0-7.443,3.761,16.874,16.874,0,0,0-4.892,7.172,32.189,32.189,0,0,0-1.723,11.333V0ZM214.834,2.1a46.287,46.287,0,0,1-23.712-5.992,42.515,42.515,0,0,1-16.1-16.477,48.4,48.4,0,0,1-5.8-23.826q0-14.071,5.8-24.767a42.642,42.642,0,0,1,16.1-16.76,45.886,45.886,0,0,1,23.729-6.065q17.153,0,28.785,9.03T258.5-57.725H232.525a16.588,16.588,0,0,0-6.341-9.624,18.964,18.964,0,0,0-11.525-3.5,18.839,18.839,0,0,0-10.835,3.136,20.075,20.075,0,0,0-7.131,8.961,35.065,35.065,0,0,0-2.506,13.913,38.257,38.257,0,0,0,1.43,10.853,24.063,24.063,0,0,0,4.114,8.226,18.1,18.1,0,0,0,6.47,5.188,19.434,19.434,0,0,0,8.459,1.8,20.448,20.448,0,0,0,8.148-1.544,16.771,16.771,0,0,0,6.154-4.517,16.723,16.723,0,0,0,3.564-7.127H258.5Q255.3-16.39,243.591-7.145T214.834,2.1Z`;
+  const P2 = `M186.1,196.245h0l-49.979,0q-.156,0-.314,0A11.1,11.1,0,0,1,124.645,185.2q0-.44.034-.872l.378-49.933L81.181,192.375l-.054.026A11.178,11.178,0,0,1,73,196.241l-.006,0h-.117l-.211,0-.214,0-60.823-.008q-.233.01-.469.01A11.1,11.1,0,0,1,0,185.2a10.918,10.918,0,0,1,1.951-6.241v0l.033-.045q.188-.269.392-.525L70.627,86.855h54.43V134.4l54.707-70.168H124.373v-.016h-.127V10.837l.136-.133A11.1,11.1,0,0,1,135.206.114L135.323,0H186.4l.114.114a11.045,11.045,0,0,1,10.723,12.763V38.028c.051.824.076,1.656.076,2.492s-.025,1.657-.075,2.475l.134,142.058h0q0,.073,0,.146a11.1,11.1,0,0,1-11.158,11.046Z`;
+
+  function makeLogo(fill, w=150, h=63, useGrad=false, gradId='') {
+    const defs = useGrad ? `<defs><linearGradient id="${gradId}" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#4FD1F9"/><stop offset="50%" stop-color="#5B9DF9"/><stop offset="100%" stop-color="#A78BFA"/></linearGradient></defs>` : '';
+    const f = useGrad ? `url(#${gradId})` : fill;
+    return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 470.516 196.246">${defs}<g transform="translate(-14862.321 -9506.995)"><path d="${P1}" transform="translate(15074.335 9685.142)" fill="${f}"/><path d="${P2}" transform="translate(14862.321 9506.995)" fill="${f}"/></g></svg>`;
+  }
+
+  const logoTiles = [
+    { bg:'#0F1419', fill:'', grad:true, id:'g1', label:'Full Color · On Dark' },
+    { bg:'#161B22', fill:'#4FD1F9', label:'Cyan · On Dark' },
+    { bg:'#21262D', fill:'rgba(255,255,255,0.9)', label:'White · On Dark' },
+    { bg:'#FFFFFF', fill:'', grad:true, id:'g2', label:'Full Color · On White' },
+    { bg:'#FFFFFF', fill:'#0F1419', label:'Dark · On White' },
+    { bg:'#0F1419', fill:'rgba(255,255,255,0.92)', label:'Mono Light' },
+  ];
+
+  document.getElementById('logoGrid').innerHTML = logoTiles.map(t => `
+    <div class="logo-tile">
+      <div class="logo-tile-bg" style="background:${t.bg};">
+        ${t.grad ? makeLogo('', 150, 63, true, t.id) : makeLogo(t.fill, 150, 63)}
+      </div>
+      <div class="logo-tile-label">${t.label}</div>
+    </div>`).join('');
+
+  // ── FOUNDATIONS ──
   const darkF = [
-    { hex:'#070B0E', name:'Void',     role:'App background' },
-    { hex:'#0C1218', name:'Abyss',    role:'Card background' },
-    { hex:'#111A22', name:'Current',  role:'Elevated surface' },
-    { hex:'#18232C', name:'Shore',    role:'Hover / selected' },
-    { hex:'#1F2D38', name:'Tide',     role:'Active surface' },
-    { hex:'#243544', name:'Reef',     role:'Borders / dividers' },
-    { hex:'#6888A0', name:'Mist',     role:'Secondary text', nameColor:'#6888A0' },
+    { hex:'#0F1419', name:'Shore',    role:'App background' },
+    { hex:'#161B22', name:'Depth',    role:'Card background' },
+    { hex:'#21262D', name:'Surface',  role:'Elevated surface' },
+    { hex:'#2D333B', name:'Elevated', role:'Hover / selected' },
+    { hex:'#30363D', name:'Border',   role:'Borders / dividers' },
+    { hex:'#8B949E', name:'Muted',    role:'Secondary text', nameColor:'#8B949E' },
   ];
   const lightF = [
-    { hex:'#EEF3F7', name:'Seafoam',  role:'App background' },
-    { hex:'#FFFFFF', name:'Crest',    role:'Card background' },
-    { hex:'#E8EEF4', name:'Spray',    role:'Elevated surface' },
-    { hex:'#DAE2EA', name:'Shallows', role:'Hover / selected' },
-    { hex:'#CDD7E0', name:'Shelf',    role:'Active surface' },
-    { hex:'#B8C6D0', name:'Bedrock',  role:'Borders / dividers' },
-    { hex:'#445C6E', name:'Deep',     role:'Secondary text', nameColor:'#445C6E' },
+    { hex:'#F5F7FA', name:'Cloud',    role:'App background' },
+    { hex:'#FFFFFF', name:'White',    role:'Card background' },
+    { hex:'#EDF0F5', name:'Haze',     role:'Elevated surface' },
+    { hex:'#E1E6EE', name:'Mist',     role:'Hover / selected' },
+    { hex:'#D0D7E0', name:'Stone',    role:'Borders / dividers' },
+    { hex:'#57606A', name:'Slate',    role:'Secondary text', nameColor:'#57606A' },
   ];
 
   function swatch({ hex, name, role, nameColor }) {
-    const dark = parseInt(hex.replace('#',''), 16) < 0x808080;
+    const dark = parseInt(hex.replace('#',''),16) < 0x888888;
     const badge = dark
       ? 'background:rgba(0,0,0,0.45);color:rgba(255,255,255,0.55);'
-      : 'background:rgba(255,255,255,0.78);color:rgba(14,26,36,0.65);';
+      : 'background:rgba(255,255,255,0.78);color:rgba(13,17,23,0.65);';
     return `<div class="swatch">
       <div class="swatch-color" style="background:${hex};">
         <span class="hex-badge" style="${badge}">${hex}</span>
       </div>
       <div class="swatch-info">
-        <div class="swatch-name"${nameColor ? ` style="color:${nameColor}"` : ''}>${name}</div>
+        <div class="swatch-name"${nameColor?` style="color:${nameColor}"`:''}}>${name}</div>
         <div class="swatch-role">${role}</div>
       </div>
     </div>`;
@@ -979,16 +994,13 @@ h1 em { font-style:italic; color:var(--arc-light); }
 
   function render(theme) {
     document.getElementById('foundationSwatches').innerHTML =
-      (theme === 'dark' ? darkF : lightF).map(swatch).join('');
+      (theme==='dark' ? darkF : lightF).map(swatch).join('');
   }
 
   function toggleTheme() {
-    const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    const next = document.documentElement.getAttribute('data-theme')==='dark' ? 'light' : 'dark';
     document.documentElement.setAttribute('data-theme', next);
-    document.getElementById('toggleLabel').textContent = next === 'dark' ? 'Dark Mode' : 'Light Mode';
-    document.getElementById('modeTag').textContent = next === 'dark'
-      ? '// SAMPLED · ELECTRIC · DARK FIRST'
-      : '// SAMPLED · ELECTRIC · LIGHT MODE';
+    document.getElementById('toggleLabel').textContent = next==='dark' ? 'Dark Mode' : 'Light Mode';
     render(next);
   }
 
